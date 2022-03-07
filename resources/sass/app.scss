@@ -6,3 +6,21 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  background-color: #e9ecef;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    color: inherit;
+  }
+}
+
+.logo-link {  
+  color: #495057;
+  font-size: 2.1rem;
+  font-weight: 300;
+  text-align: center; 
+}

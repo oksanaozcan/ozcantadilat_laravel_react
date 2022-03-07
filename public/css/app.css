@@ -11286,3 +11286,20 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  background-color: #e9ecef;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: inherit;
+}
+
+.logo-link {
+  color: #495057;
+  font-size: 2.1rem;
+  font-weight: 300;
+  text-align: center;
+}
