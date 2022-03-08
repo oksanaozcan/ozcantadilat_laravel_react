@@ -1,6 +1,19 @@
-import {Link, Outlet} from 'react-router-dom';
+import {Link, Outlet, useNavigate} from 'react-router-dom';
+import axios from "axios";
+import { BoxArrowRight } from "react-bootstrap-icons";
 
 const Layout = () => {
+
+  let navigate = useNavigate();
+
+  const onLogout = (e) => {
+    e.preventDefault();
+    axios.post('/logout')
+    .then(res => {
+      navigate('/login');
+    })
+  }
+
   return (
     <div>     
       <nav>
@@ -16,6 +29,11 @@ const Layout = () => {
           </li>    
           <li>
             <Link to="/register">Register</Link>
+          </li>    
+          <li>
+            <button onClick={onLogout} type="button" className="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Logout">
+              <BoxArrowRight className="mb-1" size={20}/> Logout  
+            </button>
           </li>    
         </ul>
       </nav>

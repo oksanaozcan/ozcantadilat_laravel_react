@@ -62,3 +62,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+TASCS:
+
+1. Redirect after login or register(after success register auth logged), message about error for user, formik validation;
+2. transition animation between pages RRD v6.
+3. Error boundary
+4. Redux with tools 

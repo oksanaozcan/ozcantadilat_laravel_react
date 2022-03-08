@@ -1,20 +1,50 @@
 import { Link } from "react-router-dom";
 import { Envelope, Lock } from "react-bootstrap-icons";
+import { useState } from "react";
+import axios from "axios";
 
 const LoginForm = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const submitLogin = (e) => {
+    e.preventDefault();
+
+    let data = {
+      email: email.trim(),
+      password: password.trim()
+    }
+
+    if (data.email !== '' && data.password !== '') {
+      axios.get('/sanctum/csrf-cookie')
+      .then(response => {
+        axios.post('/login', data)
+        .then(res => {
+          console.log(res);
+          setEmail('');
+          setPassword('');
+        })
+        .catch(error => error.res)      
+      })
+      .catch(error => console.log(error.response));
+    } else {
+      console.log('email && password must be required!')
+    } 
+  }
+
   return (
     <div className="card">
       <div className="card-body">
         <p>Sign in to start your session</p>
-        <form>
+        <form onSubmit={submitLogin}>
           <div className="input-group mb-3">
-            <input type="email" className="form-control" placeholder="Email"/>   
+            <input type="email" className="form-control" placeholder="Email" name="email" value={email} onChange={e => setEmail(e.target.value)}/>   
             <span className="input-group-text">
               <Envelope className="text-muted"/>            
             </span>        
           </div>
           <div className="input-group mb-3">
-            <input type="password" className="form-control" placeholder="Password"/>  
+            <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={e => setPassword(e.target.value)}/>  
             <span className="input-group-text">
               <Lock className="text-muted"/>            
             </span>            
