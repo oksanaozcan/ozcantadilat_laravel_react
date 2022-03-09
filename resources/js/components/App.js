@@ -27,7 +27,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />          
           <Route path="login" element={<LoginPage setIsAuth={setIsAuth} />} />          
-          <Route path="register" element={<RegisterPage />} />          
+          <Route path="register" element={<RegisterPage setIsAuth={setIsAuth} />} />          
           {/* <Route path="forgotpassword" element={<ForgorPasswordPage />} />           */}
           <Route element={<ProtectedRoutes/>}>
             <Route path="profile" element={<ProfilePage/>}/>

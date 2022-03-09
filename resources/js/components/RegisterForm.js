@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Envelope, Lock, Person } from "react-bootstrap-icons";
 import { useState } from "react";
 import axios from "axios";
 
-const RegisterForm = () => {
+const RegisterForm = ({setIsAuth}) => {
+  let navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,11 +26,9 @@ const RegisterForm = () => {
       .then(response => {
         axios.post('/register', data)
         .then(res => {
-          console.log(res);
-          setName('');
-          setEmail('');
-          setPassword('');
-          setPasswordConfirmation('');
+          localStorage.setItem('x_xsrf_token', res.config.headers['X-XSRF-TOKEN']);
+          setIsAuth(true);
+          navigate('/');          
         })
         .catch(error => error.res)      
       })
