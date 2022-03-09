@@ -67,7 +67,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 TASCS:
 
-1. Redirect after login or register(after success register auth logged), message about error for user, formik validation;
-2. transition animation between pages RRD v6.
+1. Message about error for user, formik validation;
+<!-- 1. Redirect after login or register(after success register auth logged); -->
+<!-- 2. transition animation between pages RRD v6. -->
+2. transition animation between element of app (btns, modals, blocks, other).
 3. Error boundary
 4. Redux with tools 
