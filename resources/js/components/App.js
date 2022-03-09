@@ -1,4 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import NavigateMenu from "./NavigateMenu";
 import Layout from "../pages/Layout";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
@@ -10,6 +12,8 @@ import ProfilePage from "../pages/ProfilePage";
 import ProtectedRoutes from "./ProtectedRoutes";
 
 const App = () => {
+  const location = useLocation();
+
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
@@ -22,19 +26,24 @@ const App = () => {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout isAuth={isAuth} setIsAuth={setIsAuth}/>}>
-          <Route index element={<HomePage />} />
-          <Route path="about" element={<AboutPage />} />          
-          <Route path="login" element={<LoginPage setIsAuth={setIsAuth} />} />          
-          <Route path="register" element={<RegisterPage setIsAuth={setIsAuth} />} />          
-          {/* <Route path="forgotpassword" element={<ForgorPasswordPage />} />           */}
-          <Route element={<ProtectedRoutes/>}>
-            <Route path="profile" element={<ProfilePage/>}/>
-          </Route>
-          <Route path="*" element={<NoMatchPage />} />
-        </Route>
-      </Routes>
+      <NavigateMenu isAuth={isAuth} setIsAuth={setIsAuth}/>
+      <TransitionGroup component={null}>      
+        <CSSTransition key={location.key} classNames="page" timeout={300} unmountOnExit>
+          <Routes>
+            <Route path="/" element={<Layout/>}>    
+              <Route index element={<HomePage />} />
+              <Route path="about" element={<AboutPage />} />          
+              <Route path="login" element={<LoginPage setIsAuth={setIsAuth} />} />          
+              <Route path="register" element={<RegisterPage setIsAuth={setIsAuth} />} />          
+              {/* <Route path="forgotpassword" element={<ForgorPasswordPage />} />           */}
+              <Route element={<ProtectedRoutes/>}>
+                <Route path="profile" element={<ProfilePage/>}/>
+              </Route>
+              <Route path="*" element={<NoMatchPage />} />         
+            </Route>
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
     </>
   );
 }

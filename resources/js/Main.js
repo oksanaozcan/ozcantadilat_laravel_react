@@ -5,11 +5,11 @@ import App from './components/App';
 
 const Main = () => {
   return (
-    <React.StrictMode>
+    // <React.StrictMode>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </React.StrictMode>            
+    // </React.StrictMode>            
   );
 }
 

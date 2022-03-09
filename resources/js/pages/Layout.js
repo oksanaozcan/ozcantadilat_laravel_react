@@ -1,65 +1,10 @@
-import {Link, Outlet, useNavigate} from 'react-router-dom';
-import axios from "axios";
-import { BoxArrowRight } from "react-bootstrap-icons";
-import ReactTooltip from 'react-tooltip';
+import {Outlet} from 'react-router-dom';
 
-const Layout = ({isAuth, setIsAuth}) => {
-
-  let navigate = useNavigate();
-
-  const onLogout = (e) => {
-    e.preventDefault();
-    axios.post('/logout')
-    .then(res => {
-      localStorage.removeItem('x_xsrf_token');
-      setIsAuth(false);
-      navigate('/login');
-    })
-  }
-
+const Layout = () => {    
   return (
-    <div>     
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>        
-          {
-            isAuth ?
-            <>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>     
-              <li>
-                <div>
-                  <button 
-                    data-tip 
-                    data-for='logout-btn'  
-                    onClick={onLogout} type="button" 
-                    className="btn btn-secondary"
-                  >
-                    <BoxArrowRight className="mb-1" size={20}/> Logout 
-                  </button>
-                  <ReactTooltip id='logout-btn' place="bottom"><span>Logout</span></ReactTooltip>
-                </div>            
-              </li>               
-            </> :
-            <>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>    
-              <li>
-                <Link to="/register">Register</Link>
-              </li>            
-            </>
-          }       
-        </ul>
-      </nav>
+    <>    
       <Outlet />
-    </div>
+    </>
   );
 }
 
