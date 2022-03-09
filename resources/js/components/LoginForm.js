@@ -3,7 +3,7 @@ import { Envelope, Lock } from "react-bootstrap-icons";
 import { useState } from "react";
 import axios from "axios";
 
-const LoginForm = () => {
+const LoginForm = ({setIsAuth}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,7 +20,8 @@ const LoginForm = () => {
       .then(response => {
         axios.post('/login', data)
         .then(res => {
-          console.log(res);
+          localStorage.setItem('x_xsrf_token', res.config.headers['X-XSRF-TOKEN']);
+          setIsAuth(true)
           setEmail('');
           setPassword('');
         })

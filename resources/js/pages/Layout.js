@@ -3,7 +3,7 @@ import axios from "axios";
 import { BoxArrowRight } from "react-bootstrap-icons";
 import ReactTooltip from 'react-tooltip';
 
-const Layout = () => {
+const Layout = ({isAuth, setIsAuth}) => {
 
   let navigate = useNavigate();
 
@@ -11,6 +11,8 @@ const Layout = () => {
     e.preventDefault();
     axios.post('/logout')
     .then(res => {
+      localStorage.removeItem('x_xsrf_token');
+      setIsAuth(false);
       navigate('/login');
     })
   }
@@ -24,27 +26,36 @@ const Layout = () => {
           </li>
           <li>
             <Link to="/about">About</Link>
-          </li>         
-          <li>
-            <Link to="/login">Login</Link>
-          </li>    
-          <li>
-            <Link to="/register">Register</Link>
-          </li>    
-          <li>
-            <div>
-            <button 
-              data-tip 
-              data-for='logout-btn'  
-              onClick={onLogout} type="button" 
-              className="btn btn-secondary"
-            >
-              <BoxArrowRight className="mb-1" size={20}/> Logout 
-            </button>
-            <ReactTooltip id='logout-btn' place="bottom"><span>Logout</span></ReactTooltip>
-            </div>
-            
-          </li>    
+          </li>        
+          {
+            isAuth ?
+            <>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>     
+              <li>
+                <div>
+                  <button 
+                    data-tip 
+                    data-for='logout-btn'  
+                    onClick={onLogout} type="button" 
+                    className="btn btn-secondary"
+                  >
+                    <BoxArrowRight className="mb-1" size={20}/> Logout 
+                  </button>
+                  <ReactTooltip id='logout-btn' place="bottom"><span>Logout</span></ReactTooltip>
+                </div>            
+              </li>               
+            </> :
+            <>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>    
+              <li>
+                <Link to="/register">Register</Link>
+              </li>            
+            </>
+          }       
         </ul>
       </nav>
       <Outlet />
