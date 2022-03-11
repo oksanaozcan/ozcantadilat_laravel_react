@@ -5506,6 +5506,13 @@ var App = function App() {
       isAuth = _useState2[0],
       setIsAuth = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isAdmin = _useState4[0],
+      setIsAdmin = _useState4[1];
+
+  var checkUserRole = function checkUserRole() {};
+
   (0,react__WEBPACK_IMPORTED_MODULE_6__.useEffect)(function () {
     if (localStorage.getItem('x_xsrf_token') === null) {
       setIsAuth(false);
@@ -5521,7 +5528,9 @@ var App = function App() {
       component: null,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_14__["default"], {
         classNames: "page",
-        timeout: 600,
+        timeout: 600 // mountOnEnter 
+        // unmountOnExit
+        ,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
             path: "/",
@@ -5626,6 +5635,7 @@ var LoginForm = function LoginForm(_ref) {
     if (data.email !== '' && data.password !== '') {
       axios__WEBPACK_IMPORTED_MODULE_1___default().get('/sanctum/csrf-cookie').then(function (response) {
         axios__WEBPACK_IMPORTED_MODULE_1___default().post('/login', data).then(function (res) {
+          console.log(res);
           localStorage.setItem('x_xsrf_token', res.config.headers['X-XSRF-TOKEN']);
           setIsAuth(true);
           setEmail('');

@@ -20,6 +20,7 @@ const LoginForm = ({setIsAuth}) => {
       .then(response => {
         axios.post('/login', data)
         .then(res => {
+          console.log(res)
           localStorage.setItem('x_xsrf_token', res.config.headers['X-XSRF-TOKEN']);
           setIsAuth(true)
           setEmail('');

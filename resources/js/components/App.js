@@ -16,6 +16,11 @@ const App = () => {
   const location = useLocation();
 
   const [isAuth, setIsAuth] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const checkUserRole = () => {
+    
+  }
 
   useEffect(() => {
     if (localStorage.getItem('x_xsrf_token') === null) {
@@ -29,7 +34,10 @@ const App = () => {
     <>     
       <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
       <TransitionGroup component={null}>      
-        <CSSTransition key={location.key} classNames="page" timeout={600} >
+        <CSSTransition key={location.key} classNames="page" timeout={600} 
+          // mountOnEnter 
+          // unmountOnExit
+        >
           <Routes>
             <Route path="/" element={<Layout/>}>    
               <Route index element={<HomePage />} />
