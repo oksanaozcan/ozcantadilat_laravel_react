@@ -2,15 +2,17 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BoxArrowRight } from "react-bootstrap-icons";
 
-const Navbar = ({isAuth, setIsAuth}) => {
+const Navbar = ({isAuth, setIsAuth, setIsAdmin, isAdmin}) => {
   let navigate = useNavigate();
 
   const onLogout = (e) => {
     e.preventDefault();
     axios.post('/logout')
     .then(res => {
-      localStorage.removeItem('x_xsrf_token');
+      localStorage.removeItem('x_xsrf_token');      
       setIsAuth(false);
+      localStorage.removeItem('role');
+      setIsAdmin(false);
       navigate('/login');
     })
   }
@@ -63,7 +65,13 @@ const Navbar = ({isAuth, setIsAuth}) => {
                 </li>
               </>
 
-            }                     
+            }           
+            {
+              isAdmin && 
+              <li className="nav-item">
+                <NavLink className="nav-link" aria-current="page" to="/admin">Admin Panel</NavLink>
+              </li>
+            }          
           </ul>
           <form className="d-flex">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

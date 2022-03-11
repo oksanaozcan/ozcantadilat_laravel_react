@@ -11,16 +11,16 @@ import ProfilePage from "../pages/ProfilePage";
 import GalleryPage from "../pages/GalleryPage";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Navbar from "./Navbar";
+import AdminProtectedRoutes from "./AdminProtectedRoutes";
+import AdminLayout from "../pages/admin/AdminLayout";
+import DashboardPage from "../pages/admin/DashboardPage";
+import ImagesPage from "../pages/admin/ImagesPage";
 
 const App = () => {
   const location = useLocation();
 
   const [isAuth, setIsAuth] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-
-  const checkUserRole = () => {
-    
-  }
 
   useEffect(() => {
     if (localStorage.getItem('x_xsrf_token') === null) {
@@ -30,9 +30,25 @@ const App = () => {
     }
   },[isAuth])
 
+  const checkUserRole = (role) => {
+    if (role == 0) {      
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  }  
+
+  useEffect(() => {
+    if (localStorage.getItem('role') === '0') {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  },[isAdmin])
+
   return (
     <>     
-      <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
+      <Navbar isAuth={isAuth} setIsAuth={setIsAuth} setIsAdmin={setIsAdmin} isAdmin={isAdmin}/>
       <TransitionGroup component={null}>      
         <CSSTransition key={location.key} classNames="page" timeout={600} 
           // mountOnEnter 
@@ -43,12 +59,18 @@ const App = () => {
               <Route index element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />          
               <Route path="gallery" element={<GalleryPage />} />          
-              <Route path="login" element={<LoginPage setIsAuth={setIsAuth} />} />          
+              <Route path="login" element={<LoginPage setIsAuth={setIsAuth} checkUserRole={checkUserRole}/>} />          
               <Route path="register" element={<RegisterPage setIsAuth={setIsAuth} />} />          
               {/* <Route path="forgotpassword" element={<ForgorPasswordPage />} />           */}
               <Route element={<ProtectedRoutes/>}>
                 <Route path="profile" element={<ProfilePage/>}/>
               </Route>
+              <Route element={<AdminProtectedRoutes isAdmin={isAdmin}/>}>               
+                <Route path='admin' element={<AdminLayout/>}>
+                  <Route index element={<DashboardPage/>}/>
+                  <Route path="images" element={<ImagesPage/>}/>
+                </Route>               
+              </Route>              
               <Route path="*" element={<NoMatchPage />} />         
             </Route>
           </Routes>
