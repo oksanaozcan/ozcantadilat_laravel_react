@@ -50,10 +50,7 @@ const App = () => {
     <>     
       <Navbar isAuth={isAuth} setIsAuth={setIsAuth} setIsAdmin={setIsAdmin} isAdmin={isAdmin}/>
       <TransitionGroup component={null}>      
-        <CSSTransition key={location.key} classNames="page" timeout={600} 
-          // mountOnEnter 
-          // unmountOnExit
-        >
+        <CSSTransition key={location.key} classNames="page" timeout={600} >
           <Routes>
             <Route path="/" element={<Layout/>}>    
               <Route index element={<HomePage />} />

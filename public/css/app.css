@@ -11325,3 +11325,34 @@ a:hover {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
+
+.small-box {
+  border-radius: 0.25rem;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.13), 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+  color: #fff !important;
+  overflow: hidden;
+  transition: all 300ms;
+}
+
+.small-box .icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.small-box > .small-box-footer {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  padding: 3px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  z-index: 10;
+}
+.small-box > .small-box-footer:hover {
+  transform: scale(1.1);
+}
