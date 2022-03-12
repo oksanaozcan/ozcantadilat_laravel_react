@@ -1,11 +1,19 @@
 import {Outlet} from 'react-router-dom';
+import Asidebar from '../../components/Asidebar';
 
 const AdminLayout = () => {    
   return (
-    <>    
-    <h1>Admin Layout</h1>
-      <Outlet/>
-    </>
+
+    <div className="container">
+      <div className="row mt-1">
+        <div className="col-2 bg-dark text-light">
+          <Asidebar/>
+        </div>
+        <div className="col">
+          <Outlet/>
+        </div>    
+      </div>  
+    </div>
   );
 }
 

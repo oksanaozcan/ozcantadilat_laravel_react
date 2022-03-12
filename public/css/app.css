@@ -11292,6 +11292,7 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 a:hover {
   color: inherit;
@@ -11355,4 +11356,12 @@ a:hover {
 }
 .small-box > .small-box-footer:hover {
   transform: scale(1.1);
+}
+
+.layout-fixed .main-sidebar {
+  bottom: 0;
+  float: none;
+  left: 0;
+  position: fixed;
+  top: 0;
 }

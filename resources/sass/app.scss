@@ -13,6 +13,7 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
   &:hover {
     color: inherit;
   }
@@ -24,6 +25,8 @@ a {
   font-weight: 300;
   text-align: center; 
 }
+
+/////////////////////////////////////////////
 
 .page-enter {
   opacity: 0;
@@ -46,6 +49,7 @@ a {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
+/////////////////////////////////////////////////////////
 
 .small-box {
   border-radius: 0.25rem;
@@ -77,4 +81,13 @@ a {
   &:hover {
     transform: scale(1.1);
   }
+}
+
+///////////////////////////////////////////////////@at-root
+.layout-fixed .main-sidebar {
+  bottom: 0;
+  float: none;
+  left: 0;
+  position: fixed;
+  top: 0;
 }
