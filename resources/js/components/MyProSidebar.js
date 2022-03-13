@@ -1,5 +1,5 @@
 import { ProSidebar, SidebarHeader, SidebarFooter, SidebarContent, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { House, CardList, FileCode } from 'react-bootstrap-icons';
+import { House, FileCode, Image, CardText, People, ChatDots, Bookmark, Tag } from 'react-bootstrap-icons';
 import { NavLink } from 'react-router-dom';
 
 const MyProSidebar = () => {
@@ -11,27 +11,28 @@ const MyProSidebar = () => {
       </SidebarHeader>
       <SidebarContent>
         <Menu iconShape="square">
-          <MenuItem icon={<House />} active prefix={'active'}>
+          <MenuItem icon={<House />} active>
             <NavLink to='/admin'>Dashboard</NavLink>
           </MenuItem>
-          <SubMenu title="Components" icon={<CardList />}>
-            <MenuItem>
-              <NavLink to='images'>Images</NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink to='posts'>Posts</NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink to='users'>Users</NavLink>
-            </MenuItem>
-            <MenuItem>
-              <NavLink to='comments'>Comments</NavLink>
-            </MenuItem>        
+          <MenuItem icon={<Image />}>
+            <NavLink to='images'>Images</NavLink>
+          </MenuItem>
+          <MenuItem icon={<CardText />}>
+            <NavLink to='posts'>Posts</NavLink>
+          </MenuItem>
+          <MenuItem icon={<People />}>
+            <NavLink to='users'>Users</NavLink>
+          </MenuItem>
+          <MenuItem icon={<ChatDots />}>
+            <NavLink to='comments'>Comments</NavLink>
+          </MenuItem>      
+          <SubMenu title="Components" icon={<FileCode />}>
+              
           </SubMenu>
-          <MenuItem icon={<House />}>
+          <MenuItem icon={<Bookmark />}>
             <NavLink to='/admin'>Categories</NavLink>
           </MenuItem>
-          <MenuItem icon={<House />}>
+          <MenuItem icon={<Tag />}>
             <NavLink to='/admin'>Tags</NavLink>
           </MenuItem>
         </Menu>   
