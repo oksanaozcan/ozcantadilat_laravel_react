@@ -5454,18 +5454,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var _pages_admin_DashboardPage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/admin/DashboardPage */ "./resources/js/pages/admin/DashboardPage.js");
-/* harmony import */ var _pages_LoginPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/LoginPage */ "./resources/js/pages/LoginPage.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var _pages_LoginPage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/LoginPage */ "./resources/js/pages/LoginPage.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 var AdminProtectedRoutes = function AdminProtectedRoutes(_ref) {
   var isAdmin = _ref.isAdmin;
-  return isAdmin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Outlet, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_1__["default"], {});
+  return isAdmin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Outlet, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_0__["default"], {});
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AdminProtectedRoutes);
@@ -5483,9 +5481,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/TransitionGroup.js");
-/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/CSSTransition.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/TransitionGroup.js");
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/CSSTransition.js");
 /* harmony import */ var _pages_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/Layout */ "./resources/js/pages/Layout.js");
 /* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/HomePage */ "./resources/js/pages/HomePage.js");
 /* harmony import */ var _pages_AboutPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/AboutPage */ "./resources/js/pages/AboutPage.js");
@@ -5504,7 +5502,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_admin_PostsAdminPage__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../pages/admin/PostsAdminPage */ "./resources/js/pages/admin/PostsAdminPage.js");
 /* harmony import */ var _pages_admin_UsersAdminPage__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../pages/admin/UsersAdminPage */ "./resources/js/pages/admin/UsersAdminPage.js");
 /* harmony import */ var _pages_admin_CommentsAdminPage__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../pages/admin/CommentsAdminPage */ "./resources/js/pages/admin/CommentsAdminPage.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_admin_CategoriesAdminPage__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../pages/admin/CategoriesAdminPage */ "./resources/js/pages/admin/CategoriesAdminPage.js");
+/* harmony import */ var _pages_admin_TagsAdminPage__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../pages/admin/TagsAdminPage */ "./resources/js/pages/admin/TagsAdminPage.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5541,8 +5541,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var App = function App() {
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_19__.useLocation)();
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_21__.useLocation)();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -5577,74 +5579,80 @@ var App = function App() {
       setIsAdmin(false);
     }
   }, [isAdmin]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_10__["default"], {
       isAuth: isAuth,
       setIsAuth: setIsAuth,
       setIsAdmin: setIsAdmin,
       isAdmin: isAdmin
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_20__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_22__["default"], {
       component: null,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_21__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_23__["default"], {
         classNames: "page",
         timeout: 600,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Routes, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Routes, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
             path: "/",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {}),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {}),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
               index: true,
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
               path: "about",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
               path: "gallery",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_GalleryPage__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_GalleryPage__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
               path: "login",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 setIsAuth: setIsAuth,
                 checkUserRole: checkUserRole
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
               path: "register",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_RegisterPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_RegisterPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
                 setIsAuth: setIsAuth
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_ProtectedRoutes__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_ProtectedRoutes__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
                 path: "profile",
-                element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_ProfilePage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+                element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_ProfilePage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_AdminProtectedRoutes__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_AdminProtectedRoutes__WEBPACK_IMPORTED_MODULE_11__["default"], {
                 isAdmin: isAdmin
               }),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
                 path: "admin",
-                element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_admin_AdminLayout__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+                element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_admin_AdminLayout__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
                   index: true,
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_admin_DashboardPage__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_admin_DashboardPage__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
                   path: "images",
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_admin_ImagesAdminPage__WEBPACK_IMPORTED_MODULE_14__["default"], {})
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_admin_ImagesAdminPage__WEBPACK_IMPORTED_MODULE_14__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
                   path: "posts",
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_admin_PostsAdminPage__WEBPACK_IMPORTED_MODULE_15__["default"], {})
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_admin_PostsAdminPage__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
                   path: "users",
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_admin_UsersAdminPage__WEBPACK_IMPORTED_MODULE_16__["default"], {})
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_admin_UsersAdminPage__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
                   path: "comments",
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_admin_CommentsAdminPage__WEBPACK_IMPORTED_MODULE_17__["default"], {})
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_admin_CommentsAdminPage__WEBPACK_IMPORTED_MODULE_17__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+                  path: "categories",
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_admin_CategoriesAdminPage__WEBPACK_IMPORTED_MODULE_18__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
+                  path: "tags",
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_admin_TagsAdminPage__WEBPACK_IMPORTED_MODULE_19__["default"], {})
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Route, {
               path: "*",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(_pages_NoMatchPage__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_pages_NoMatchPage__WEBPACK_IMPORTED_MODULE_3__["default"], {})
             })]
           })
         })
@@ -5972,13 +5980,13 @@ var MyProSidebar = function MyProSidebar() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_pro_sidebar__WEBPACK_IMPORTED_MODULE_0__.MenuItem, {
           icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
-            to: "/admin",
+            to: "categories",
             children: "Categories"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_pro_sidebar__WEBPACK_IMPORTED_MODULE_0__.MenuItem, {
           icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_10__["default"], {}),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
-            to: "/admin",
+            to: "tags",
             children: "Tags"
           })
         })]
@@ -6660,6 +6668,30 @@ var AdminLayout = function AdminLayout() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin/CategoriesAdminPage.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/pages/admin/CategoriesAdminPage.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+var CategoriesAdminPage = function CategoriesAdminPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    children: "Categories PAGE"
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoriesAdminPage);
+
+/***/ }),
+
 /***/ "./resources/js/pages/admin/CommentsAdminPage.js":
 /*!*******************************************************!*\
   !*** ./resources/js/pages/admin/CommentsAdminPage.js ***!
@@ -6813,6 +6845,30 @@ var PostsAdminPage = function PostsAdminPage() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostsAdminPage);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/TagsAdminPage.js":
+/*!***************************************************!*\
+  !*** ./resources/js/pages/admin/TagsAdminPage.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+var TagsAdminPage = function TagsAdminPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    children: "Tags PAGE"
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TagsAdminPage);
 
 /***/ }),
 

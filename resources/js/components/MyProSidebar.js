@@ -30,10 +30,10 @@ const MyProSidebar = () => {
               
           </SubMenu>
           <MenuItem icon={<Bookmark />}>
-            <NavLink to='/admin'>Categories</NavLink>
+            <NavLink to='categories'>Categories</NavLink>
           </MenuItem>
           <MenuItem icon={<Tag />}>
-            <NavLink to='/admin'>Tags</NavLink>
+            <NavLink to='tags'>Tags</NavLink>
           </MenuItem>
         </Menu>   
       </SidebarContent>

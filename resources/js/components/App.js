@@ -18,6 +18,8 @@ import ImagesAdminPage from "../pages/admin/ImagesAdminPage";
 import PostsAdminPage from "../pages/admin/PostsAdminPage";
 import UsersAdminPage from "../pages/admin/UsersAdminPage";
 import CommentsAdminPage from "../pages/admin/CommentsAdminPage";
+import CategoriesAdminPage from "../pages/admin/CategoriesAdminPage";
+import TagsAdminPage from "../pages/admin/TagsAdminPage";
 
 const App = () => {
   const location = useLocation();
@@ -72,6 +74,8 @@ const App = () => {
                   <Route path="posts" element={<PostsAdminPage/>}/>
                   <Route path="users" element={<UsersAdminPage/>}/>
                   <Route path="comments" element={<CommentsAdminPage/>}/>
+                  <Route path="categories" element={<CategoriesAdminPage/>}/>
+                  <Route path="tags" element={<TagsAdminPage/>}/>
                 </Route>               
               </Route>              
               <Route path="*" element={<NoMatchPage />} />         
