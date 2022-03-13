@@ -20,6 +20,7 @@ import UsersAdminPage from "../pages/admin/UsersAdminPage";
 import CommentsAdminPage from "../pages/admin/CommentsAdminPage";
 import CategoriesAdminPage from "../pages/admin/CategoriesAdminPage";
 import TagsAdminPage from "../pages/admin/TagsAdminPage";
+import CategoryDetailsPage from "../pages/admin/CategoryDetailsPage";
 
 const App = () => {
   const location = useLocation();
@@ -74,7 +75,10 @@ const App = () => {
                   <Route path="posts" element={<PostsAdminPage/>}/>
                   <Route path="users" element={<UsersAdminPage/>}/>
                   <Route path="comments" element={<CommentsAdminPage/>}/>
-                  <Route path="categories" element={<CategoriesAdminPage/>}/>
+                  <Route path="categories">
+                    <Route index element={<CategoriesAdminPage/>}/>
+                    <Route path=":categoryId" element={<CategoryDetailsPage/>}/>
+                  </Route>
                   <Route path="tags" element={<TagsAdminPage/>}/>
                 </Route>               
               </Route>              
