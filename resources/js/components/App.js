@@ -14,7 +14,10 @@ import Navbar from "./Navbar";
 import AdminProtectedRoutes from "./AdminProtectedRoutes";
 import AdminLayout from "../pages/admin/AdminLayout";
 import DashboardPage from "../pages/admin/DashboardPage";
-import ImagesPage from "../pages/admin/ImagesPage";
+import ImagesAdminPage from "../pages/admin/ImagesAdminPage";
+import PostsAdminPage from "../pages/admin/PostsAdminPage";
+import UsersAdminPage from "../pages/admin/UsersAdminPage";
+import CommentsAdminPage from "../pages/admin/CommentsAdminPage";
 
 const App = () => {
   const location = useLocation();
@@ -65,7 +68,10 @@ const App = () => {
               <Route element={<AdminProtectedRoutes isAdmin={isAdmin}/>}>               
                 <Route path='admin' element={<AdminLayout/>}>
                   <Route index element={<DashboardPage/>}/>
-                  <Route path="images" element={<ImagesPage/>}/>
+                  <Route path="images" element={<ImagesAdminPage/>}/>
+                  <Route path="posts" element={<PostsAdminPage/>}/>
+                  <Route path="users" element={<UsersAdminPage/>}/>
+                  <Route path="comments" element={<CommentsAdminPage/>}/>
                 </Route>               
               </Route>              
               <Route path="*" element={<NoMatchPage />} />         
