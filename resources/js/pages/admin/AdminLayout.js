@@ -1,20 +1,20 @@
 import {Outlet} from 'react-router-dom';
-import Asidebar from '../../components/Asidebar';
+import MyProSidebar from '../../components/MyProSidebar';
 
 const AdminLayout = () => {    
   return (
-
-    <div className="container">
-      <div className="row mt-1">
-        <div className="col-2 bg-dark text-light">
-          <Asidebar/>
-        </div>
-        <div className="col">
-          <Outlet/>
-        </div>    
-      </div>  
+    <div className='container'>
+      <div className="row">
+      <div className="col-2">
+        <MyProSidebar/>
+      </div>      
+      <div className="col-10">        
+        <Outlet/>        
+      </div>
+    </div>    
     </div>
-  );
+    
+  )
 }
 
 export default AdminLayout;
