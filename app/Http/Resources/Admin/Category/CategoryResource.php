@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin\Category;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CategoryResource extends JsonResource
@@ -17,7 +18,7 @@ class CategoryResource extends JsonResource
         return [
           'id' => $this->id,
           'title' => $this->title,
-          'created_at' => $this->created_at
+          'created_at' => Carbon::parse($this->created_at)->format('M d Y') 
         ];
     }
 }

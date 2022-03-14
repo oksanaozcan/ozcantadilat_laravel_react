@@ -22,6 +22,28 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('categories')->group(function () {
   Route::get('/', IndexController::class);
-  Route::get('/{category}', ShowController::class);
+  Route::get('/{category}', ShowController::class);  
   Route::post('/store', StoreController::class);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/{category}', function ($category) {
+  //   return new CategoryResource(Category::findOrFail($category));
+  // });

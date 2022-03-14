@@ -9,7 +9,7 @@ const CategoryDetailsPage = () => {
   const show = () => {
     axios.get(`/api/categories/${categoryId}`)
     .then(res => {
-      setCategory(res.data[0]);
+      setCategory(res.data.data);
     })
     .catch(error => console.log(error.res))
   }
@@ -56,14 +56,14 @@ const CategoryDetailsPage = () => {
           </nav>
         </div>
         <div className="col align-self-center">
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">{category.title}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{category.created_at}</h6>
-            <p className="card-text">text</p>
-            <p className="card-text">text</p>            
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">{category.title}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">{category.created_at}</h6>
+              <p className="card-text">text</p>
+              <p className="card-text">text</p>            
+            </div>
           </div>
-        </div>
         </div>
         <div className="col align-self-end">
           <div className="d-flex w-75 mb-4 justify-content-around">

@@ -21,7 +21,7 @@ const CategoriesList = ({categories}) => {
             categories.map(item => (
               <tr key={item.id}>
                 <th>{item.title}</th>
-                <td>{item.created_at.slice(0, 10)}</td>
+                <td>{item.created_at}</td>
                 <td>5555</td>
                 <td>4444</td>
                 <td><Link to={`${item.id}`}><Eye size={20} color="#6610f2"/></Link></td>

@@ -6468,7 +6468,7 @@ var CategoriesList = function CategoriesList(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
               children: item.title
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
-              children: item.created_at.slice(0, 10)
+              children: item.created_at
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
               children: "5555"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
@@ -7042,7 +7042,7 @@ var CategoryDetailsPage = function CategoryDetailsPage() {
 
   var show = function show() {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/categories/".concat(categoryId)).then(function (res) {
-      setCategory(res.data[0]);
+      setCategory(res.data.data);
     })["catch"](function (error) {
       return console.log(error.res);
     });
