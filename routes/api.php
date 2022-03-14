@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Category\IndexController;
+use App\Http\Controllers\Admin\Category\ShowController;
 use App\Http\Controllers\Admin\Category\StoreController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -21,5 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('categories')->group(function () {
   Route::get('/', IndexController::class);
+  Route::get('/{category}', ShowController::class);
   Route::post('/store', StoreController::class);
 });

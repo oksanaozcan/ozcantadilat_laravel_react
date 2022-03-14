@@ -1,4 +1,5 @@
-import {useState} from 'react';
+import axios from 'axios';
+import {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 
 const CategoryDetailsPage = () => {
@@ -6,8 +7,16 @@ const CategoryDetailsPage = () => {
   const [category, setCategory] = useState({});
 
   const show = () => {
-
+    axios.get(`/api/categories/${categoryId}`)
+    .then(res => {
+      setCategory(res.data[0]);
+    })
+    .catch(error => console.log(error.res))
   }
+
+  useEffect(() => {
+    show()
+  }, []);
 
   return (
     <div className="container">
@@ -49,8 +58,8 @@ const CategoryDetailsPage = () => {
         <div className="col align-self-center">
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <h6 className="card-subtitle mb-2 text-muted">som</h6>
+            <h5 className="card-title">{category.title}</h5>
+            <h6 className="card-subtitle mb-2 text-muted">{category.created_at}</h6>
             <p className="card-text">text</p>
             <p className="card-text">text</p>            
           </div>
