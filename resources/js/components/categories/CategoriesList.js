@@ -1,7 +1,13 @@
 import { Eye, Pencil, Trash } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
-const CategoriesList = ({categories}) => {
+const CategoriesList = ({categories, deleteCategory, getCategories}) => {
+
+  const onDeleteCategory = (id) => {
+    deleteCategory(id);
+    getCategories();
+  }
+  
   return(
     <>
       <table className="table">
@@ -26,7 +32,7 @@ const CategoriesList = ({categories}) => {
                 <td>4444</td>
                 <td><Link to={`${item.id}`}><Eye size={20} color="#6610f2"/></Link></td>
                 <td><Link to={`edit/${item.id}`}><Pencil size={20} color="#6610f2"/></Link></td>
-                <td><Trash size={20} color="#dc3545"/></td>
+                <td><button onClick={() => onDeleteCategory(item.id)} type="button" className="btn btn-link"><Trash size={20} color="#dc3545"/></button></td>
               </tr>   
             ))
           }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const CategoryDetailsPage = () => {
   const {categoryId} = useParams();
@@ -67,7 +67,7 @@ const CategoryDetailsPage = () => {
         </div>
         <div className="col align-self-end">
           <div className="d-flex w-75 mb-4 justify-content-around">
-            <button type="button" className="btn btn-primary btn-lg">Edit</button>
+            <Link to={`/admin/categories/edit/${category.id}`} className="btn btn-primary btn-lg">Edit</Link>
             <button type="button" className="btn btn-danger btn-lg">Delete</button>
           </div>          
         </div>

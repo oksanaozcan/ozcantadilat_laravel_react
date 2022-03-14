@@ -17,6 +17,12 @@ const CategoriesAdminPage = () => {
     getCategories()
   }, []);
 
+  const deleteCategory = (id) => {
+    axios.delete(`/api/categories/${id}`)
+    .then(res => {})
+    .catch(error => console.log(error.res))
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -29,7 +35,7 @@ const CategoriesAdminPage = () => {
       </div>
       <div className="row">
         <div className="col-12">
-          <CategoriesList categories={categories}/>
+          <CategoriesList categories={categories} deleteCategory={deleteCategory} getCategories={getCategories}/>
         </div>       
       </div>
       <div className="row align-items-end">        

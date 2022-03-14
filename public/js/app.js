@@ -6437,7 +6437,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CategoriesList = function CategoriesList(_ref) {
-  var categories = _ref.categories;
+  var categories = _ref.categories,
+      deleteCategory = _ref.deleteCategory,
+      getCategories = _ref.getCategories;
+
+  var onDeleteCategory = function onDeleteCategory(id) {
+    deleteCategory(id);
+    getCategories();
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", {
       className: "table",
@@ -6495,9 +6503,16 @@ var CategoriesList = function CategoriesList(_ref) {
                 })
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                size: 20,
-                color: "#dc3545"
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+                onClick: function onClick() {
+                  return onDeleteCategory(item.id);
+                },
+                type: "button",
+                className: "btn btn-link",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  size: 20,
+                  color: "#dc3545"
+                })
               })
             })]
           }, item.id);
@@ -7241,6 +7256,13 @@ var CategoriesAdminPage = function CategoriesAdminPage() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getCategories();
   }, []);
+
+  var deleteCategory = function deleteCategory(id) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("/api/categories/".concat(id)).then(function (res) {})["catch"](function (error) {
+      return console.log(error.res);
+    });
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -7259,7 +7281,9 @@ var CategoriesAdminPage = function CategoriesAdminPage() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "col-12",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_categories_CategoriesList__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          categories: categories
+          categories: categories,
+          deleteCategory: deleteCategory,
+          getCategories: getCategories
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -7366,6 +7390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -7529,8 +7554,8 @@ var CategoryDetailsPage = function CategoryDetailsPage() {
         className: "col align-self-end",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "d-flex w-75 mb-4 justify-content-around",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            type: "button",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+            to: "/admin/categories/edit/".concat(category.id),
             className: "btn btn-primary btn-lg",
             children: "Edit"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
