@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-const CategoryForm = () => {
+const CategoryForm = ({getCategories}) => {
   const [title, setTitle] = useState('');
 
   const store = (e) => {
@@ -15,6 +15,7 @@ const CategoryForm = () => {
       axios.post('/api/categories/store', data)
       .then(res => {
         setTitle('');
+        getCategories();
       })
       .catch(error => console.log(error.res))
     } else {

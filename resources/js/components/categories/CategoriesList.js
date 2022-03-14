@@ -1,3 +1,4 @@
+import { Eye, Pencil, Trash } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
 const CategoriesList = ({categories}) => {
@@ -23,9 +24,9 @@ const CategoriesList = ({categories}) => {
                 <td>{item.created_at.slice(0, 10)}</td>
                 <td>5555</td>
                 <td>4444</td>
-                <td><Link to={`${item.id}`}>Show</Link></td>
-                <td>btn</td>
-                <td>btn</td>
+                <td><Link to={`${item.id}`}><Eye size={20} color="#6610f2"/></Link></td>
+                <td><Link to={`edit/${item.id}`}><Pencil size={20} color="#6610f2"/></Link></td>
+                <td><Trash size={20} color="#dc3545"/></td>
               </tr>   
             ))
           }

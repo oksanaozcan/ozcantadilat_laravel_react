@@ -78,6 +78,7 @@ const App = () => {
                   <Route path="categories">
                     <Route index element={<CategoriesAdminPage/>}/>
                     <Route path=":categoryId" element={<CategoryDetailsPage/>}/>
+                    {/* <Route path="edit/:categoryId" element={</>}/> */}
                   </Route>
                   <Route path="tags" element={<TagsAdminPage/>}/>
                 </Route>               
