@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Category\IndexController;
 use App\Http\Controllers\Admin\Category\ShowController;
 use App\Http\Controllers\Admin\Category\StoreController;
+use App\Http\Controllers\Admin\Category\UpdateController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -24,6 +25,7 @@ Route::prefix('categories')->group(function () {
   Route::get('/', IndexController::class);
   Route::get('/{category}', ShowController::class);  
   Route::post('/store', StoreController::class);
+  Route::patch('/{category}', UpdateController::class);
 });
 
 

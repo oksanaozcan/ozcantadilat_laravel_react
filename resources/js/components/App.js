@@ -18,9 +18,10 @@ import ImagesAdminPage from "../pages/admin/ImagesAdminPage";
 import PostsAdminPage from "../pages/admin/PostsAdminPage";
 import UsersAdminPage from "../pages/admin/UsersAdminPage";
 import CommentsAdminPage from "../pages/admin/CommentsAdminPage";
-import CategoriesAdminPage from "../pages/admin/CategoriesAdminPage";
+import CategoriesAdminPage from "../pages/admin/categories/CategoriesAdminPage";
 import TagsAdminPage from "../pages/admin/TagsAdminPage";
-import CategoryDetailsPage from "../pages/admin/CategoryDetailsPage";
+import CategoryDetailsPage from "../pages/admin/categories/CategoryDetailsPage";
+import CategoryEditPage from "../pages/admin/categories/CategoriesEditPage";
 
 const App = () => {
   const location = useLocation();
@@ -78,7 +79,7 @@ const App = () => {
                   <Route path="categories">
                     <Route index element={<CategoriesAdminPage/>}/>
                     <Route path=":categoryId" element={<CategoryDetailsPage/>}/>
-                    {/* <Route path="edit/:categoryId" element={</>}/> */}
+                    <Route path="edit/:categoryId" element={<CategoryEditPage/>}/>
                   </Route>
                   <Route path="tags" element={<TagsAdminPage/>}/>
                 </Route>               

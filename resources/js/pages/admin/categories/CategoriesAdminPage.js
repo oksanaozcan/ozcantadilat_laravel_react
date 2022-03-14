@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import CategoriesList from "../../components/categories/CategoriesList";
-import CategoryForm from "../../components/categories/CategoryForm";
+import CategoriesList from "../../../components/categories/CategoriesList";
+import CategoryForm from "../../../components/categories/CategoryForm";
 
 const CategoriesAdminPage = () => {
   const [categories, setCategories] = useState([]);
