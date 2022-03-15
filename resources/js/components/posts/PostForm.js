@@ -1,22 +1,30 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { EditorState } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import { convertToHTML } from 'draft-convert';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const PostForm = ({getPosts}) => {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
   const [category_id, setCategoryId] = useState(null);
+
+  const [editorState, setEditorState] = useState(
+    () => EditorState.createEmpty(),
+  ); 
+  // const html = convertToHTML(editorState.getCurrentContent());
 
   const store = (e) => {
     e.preventDefault();
     let data = {
-      title: title.trim()
+      title: title.trim(),  
+      content: convertToHTML(editorState.getCurrentContent())
     }
+    console.log(data)
     if (data.title !== '') {
       axios.post('/api/posts/store', data)
       .then(res => {
-        setTitle('');
+        setTitle('');        
         getPosts();
       })
       .catch(error => console.log(error.res))
@@ -34,13 +42,19 @@ const PostForm = ({getPosts}) => {
             <input type="text" className="form-control" placeholder="Enter Title of Post" name="title" value={title} onChange={e => setTitle(e.target.value)}/>       
           </div>
           <div className="form-group mb-3">
-          <Editor
-            editorState={content}
-            toolbarClassName="toolbarClassName"
-            wrapperClassName="wrapperClassName"
-            editorClassName="editorClassName"
-            onEditorStateChange={setContent}
-          />
+
+            <Editor 
+              editorState={editorState}
+              onEditorStateChange={setEditorState}
+              wrapperClassName="border border-secondary"
+              editorClassName="bg-light"
+              toolbarClassName="bg-secondary"
+            />  
+
+            <div className="jumbotron mt-2">
+              {/* {html} */}
+            </div>
+          
           </div>
           <div className="d-block">
           <button type="submit" className="btn btn-primary btn-lg btn-block mt-1 w-100">Submit</button> 

@@ -16,7 +16,7 @@ const PostDetailsPage = () => {
   }
 
   useEffect(() => {
-    show()
+    show()   
   }, []);
 
   const deletePost = () => {
@@ -66,7 +66,9 @@ const PostDetailsPage = () => {
             <div className="card-body">
               <h5 className="card-title">{post.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{post.created_at}</h6>
-              <p className="card-text">text</p>
+
+              <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+              
               <p className="card-text">text</p>            
             </div>
           </div>
