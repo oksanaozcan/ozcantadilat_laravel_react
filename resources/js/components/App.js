@@ -15,7 +15,6 @@ import AdminProtectedRoutes from "./AdminProtectedRoutes";
 import AdminLayout from "../pages/admin/AdminLayout";
 import DashboardPage from "../pages/admin/DashboardPage";
 import ImagesAdminPage from "../pages/admin/ImagesAdminPage";
-import PostsAdminPage from "../pages/admin/PostsAdminPage";
 import UsersAdminPage from "../pages/admin/UsersAdminPage";
 import CommentsAdminPage from "../pages/admin/CommentsAdminPage";
 import CategoriesAdminPage from "../pages/admin/categories/CategoriesAdminPage";
@@ -24,6 +23,7 @@ import CategoryEditPage from "../pages/admin/categories/CategoryEditPage";
 import TagsAdminPage from "../pages/admin/tags/TagsAdminPage";
 import TagDetailsPage from "../pages/admin/tags/TagDetailsPage";
 import TagEditPage from "../pages/admin/tags/TagEditPage";
+import PostsPage from "../pages/PostsPage";
 
 const App = () => {
   const location = useLocation();
@@ -65,6 +65,7 @@ const App = () => {
               <Route index element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />          
               <Route path="gallery" element={<GalleryPage />} />          
+              <Route path="posts" element={<PostsPage />} />          
               <Route path="login" element={<LoginPage setIsAuth={setIsAuth} checkUserRole={checkUserRole}/>} />          
               <Route path="register" element={<RegisterPage setIsAuth={setIsAuth} />} />          
               {/* <Route path="forgotpassword" element={<ForgorPasswordPage />} />           */}
@@ -74,8 +75,7 @@ const App = () => {
               <Route element={<AdminProtectedRoutes isAdmin={isAdmin}/>}>               
                 <Route path='admin' element={<AdminLayout/>}>
                   <Route index element={<DashboardPage/>}/>
-                  <Route path="images" element={<ImagesAdminPage/>}/>
-                  <Route path="posts" element={<PostsAdminPage/>}/>
+                  <Route path="images" element={<ImagesAdminPage/>}/>                 
                   <Route path="users" element={<UsersAdminPage/>}/>
                   <Route path="comments" element={<CommentsAdminPage/>}/>
                   <Route path="categories">
@@ -87,7 +87,12 @@ const App = () => {
                     <Route index element={<TagsAdminPage/>}/>
                     <Route path=":tagId" element={<TagDetailsPage/>}/>
                     <Route path="edit/:tagId" element={<TagEditPage/>}/>
-                  </Route>                  
+                  </Route>    
+                  <Route path="posts">
+                    <Route index element={<PostsAdminPage/>}/>
+                    <Route path=":postId" element={<PostDetailsPage/>}/>
+                    <Route path="edit/:postId" element={<PostEditPage/>}/>
+                  </Route>                     
                 </Route>               
               </Route>              
               <Route path="*" element={<NoMatchPage />} />         

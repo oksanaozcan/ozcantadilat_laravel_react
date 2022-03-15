@@ -19,22 +19,21 @@ const MyProSidebar = () => {
           </MenuItem>
           <MenuItem icon={<CardText />}>
             <NavLink to='posts'>Posts</NavLink>
-          </MenuItem>
-          <MenuItem icon={<People />}>
-            <NavLink to='users'>Users</NavLink>
-          </MenuItem>
-          <MenuItem icon={<ChatDots />}>
-            <NavLink to='comments'>Comments</NavLink>
-          </MenuItem>      
-          <SubMenu title="Components" icon={<FileCode />}>
-              
-          </SubMenu>
+          </MenuItem>         
           <MenuItem icon={<Bookmark />}>
             <NavLink to='categories'>Categories</NavLink>
           </MenuItem>
           <MenuItem icon={<Tag />}>
             <NavLink to='tags'>Tags</NavLink>
           </MenuItem>
+          <MenuItem icon={<ChatDots />}>
+            <NavLink to='comments'>Comments</NavLink>
+          </MenuItem>
+          <MenuItem icon={<People />}>
+            <NavLink to='users'>Users</NavLink>
+          </MenuItem>          
+          <SubMenu title="Components" icon={<FileCode />}>              
+          </SubMenu>
         </Menu>   
       </SidebarContent>
       <SidebarFooter>
