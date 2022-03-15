@@ -24,6 +24,9 @@ import TagsAdminPage from "../pages/admin/tags/TagsAdminPage";
 import TagDetailsPage from "../pages/admin/tags/TagDetailsPage";
 import TagEditPage from "../pages/admin/tags/TagEditPage";
 import PostsPage from "../pages/PostsPage";
+import PostsAdminPage from "../pages/admin/posts/PostsAdminPage";
+import PostEditPage from "../pages/admin/posts/PostEditPage";
+import PostDetailsPage from "../pages/admin/posts/PostDetailsPage";
 
 const App = () => {
   const location = useLocation();
