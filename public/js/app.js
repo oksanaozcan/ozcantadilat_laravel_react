@@ -5481,9 +5481,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/TransitionGroup.js");
-/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/CSSTransition.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/TransitionGroup.js");
+/* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/CSSTransition.js");
 /* harmony import */ var _pages_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/Layout */ "./resources/js/pages/Layout.js");
 /* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/HomePage */ "./resources/js/pages/HomePage.js");
 /* harmony import */ var _pages_AboutPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/AboutPage */ "./resources/js/pages/AboutPage.js");
@@ -5511,7 +5511,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_admin_posts_PostsAdminPage__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../pages/admin/posts/PostsAdminPage */ "./resources/js/pages/admin/posts/PostsAdminPage.js");
 /* harmony import */ var _pages_admin_posts_PostEditPage__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../pages/admin/posts/PostEditPage */ "./resources/js/pages/admin/posts/PostEditPage.js");
 /* harmony import */ var _pages_admin_posts_PostDetailsPage__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../pages/admin/posts/PostDetailsPage */ "./resources/js/pages/admin/posts/PostDetailsPage.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_admin_posts_PostCreatePage__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../pages/admin/posts/PostCreatePage */ "./resources/js/pages/admin/posts/PostCreatePage.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5557,8 +5558,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var App = function App() {
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_28__.useLocation)();
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_29__.useLocation)();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -5593,110 +5595,113 @@ var App = function App() {
       setIsAdmin(false);
     }
   }, [isAdmin]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_10__["default"], {
       isAuth: isAuth,
       setIsAuth: setIsAuth,
       setIsAdmin: setIsAdmin,
       isAdmin: isAdmin
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_29__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_30__["default"], {
       component: null,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_30__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_transition_group__WEBPACK_IMPORTED_MODULE_31__["default"], {
         classNames: "page",
         timeout: 600,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Routes, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Routes, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
             path: "/",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {}),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {}),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
               index: true,
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_HomePage__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
               path: "about",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_AboutPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
               path: "gallery",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_GalleryPage__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_GalleryPage__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
               path: "posts",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_PostsPage__WEBPACK_IMPORTED_MODULE_23__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_PostsPage__WEBPACK_IMPORTED_MODULE_23__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
               path: "login",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 setIsAuth: setIsAuth,
                 checkUserRole: checkUserRole
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
               path: "register",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_RegisterPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_RegisterPage__WEBPACK_IMPORTED_MODULE_5__["default"], {
                 setIsAuth: setIsAuth
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_ProtectedRoutes__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_ProtectedRoutes__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                 path: "profile",
-                element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_ProfilePage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+                element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_ProfilePage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_AdminProtectedRoutes__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_AdminProtectedRoutes__WEBPACK_IMPORTED_MODULE_11__["default"], {
                 isAdmin: isAdmin
               }),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                 path: "admin",
-                element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_AdminLayout__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_AdminLayout__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                   index: true,
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_DashboardPage__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_DashboardPage__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                   path: "images",
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_ImagesAdminPage__WEBPACK_IMPORTED_MODULE_14__["default"], {})
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_ImagesAdminPage__WEBPACK_IMPORTED_MODULE_14__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                   path: "users",
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_UsersAdminPage__WEBPACK_IMPORTED_MODULE_15__["default"], {})
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_UsersAdminPage__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                   path: "comments",
-                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_CommentsAdminPage__WEBPACK_IMPORTED_MODULE_16__["default"], {})
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                  element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_CommentsAdminPage__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                   path: "categories",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     index: true,
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_categories_CategoriesAdminPage__WEBPACK_IMPORTED_MODULE_17__["default"], {})
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_categories_CategoriesAdminPage__WEBPACK_IMPORTED_MODULE_17__["default"], {})
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     path: ":categoryId",
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_categories_CategoryDetailsPage__WEBPACK_IMPORTED_MODULE_18__["default"], {})
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_categories_CategoryDetailsPage__WEBPACK_IMPORTED_MODULE_18__["default"], {})
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     path: "edit/:categoryId",
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_categories_CategoryEditPage__WEBPACK_IMPORTED_MODULE_19__["default"], {})
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_categories_CategoryEditPage__WEBPACK_IMPORTED_MODULE_19__["default"], {})
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                   path: "tags",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     index: true,
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_tags_TagsAdminPage__WEBPACK_IMPORTED_MODULE_20__["default"], {})
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_tags_TagsAdminPage__WEBPACK_IMPORTED_MODULE_20__["default"], {})
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     path: ":tagId",
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_tags_TagDetailsPage__WEBPACK_IMPORTED_MODULE_21__["default"], {})
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_tags_TagDetailsPage__WEBPACK_IMPORTED_MODULE_21__["default"], {})
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     path: "edit/:tagId",
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_tags_TagEditPage__WEBPACK_IMPORTED_MODULE_22__["default"], {})
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_tags_TagEditPage__WEBPACK_IMPORTED_MODULE_22__["default"], {})
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                   path: "posts",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     index: true,
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_posts_PostsAdminPage__WEBPACK_IMPORTED_MODULE_24__["default"], {})
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_posts_PostsAdminPage__WEBPACK_IMPORTED_MODULE_24__["default"], {})
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+                    path: "create",
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_posts_PostCreatePage__WEBPACK_IMPORTED_MODULE_27__["default"], {})
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     path: ":postId",
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_posts_PostDetailsPage__WEBPACK_IMPORTED_MODULE_26__["default"], {})
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_posts_PostDetailsPage__WEBPACK_IMPORTED_MODULE_26__["default"], {})
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
                     path: "edit/:postId",
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_admin_posts_PostEditPage__WEBPACK_IMPORTED_MODULE_25__["default"], {})
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_admin_posts_PostEditPage__WEBPACK_IMPORTED_MODULE_25__["default"], {})
                   })]
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
               path: "*",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_pages_NoMatchPage__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_pages_NoMatchPage__WEBPACK_IMPORTED_MODULE_3__["default"], {})
             })]
           })
         })
@@ -6924,6 +6929,16 @@ var PostForm = function PostForm(_ref) {
       _useState2 = _slicedToArray(_useState, 2),
       title = _useState2[0],
       setTitle = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      content = _useState4[0],
+      setContent = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      category_id = _useState6[0],
+      setCategoryId = _useState6[1];
 
   var store = function store(e) {
     e.preventDefault();
@@ -8237,6 +8252,33 @@ var CategoryEditPage = function CategoryEditPage() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin/posts/PostCreatePage.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/pages/admin/posts/PostCreatePage.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_posts_PostForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/posts/PostForm */ "./resources/js/components/posts/PostForm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var PostCreatePage = function PostCreatePage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_posts_PostForm__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostCreatePage);
+
+/***/ }),
+
 /***/ "./resources/js/pages/admin/posts/PostDetailsPage.js":
 /*!***********************************************************!*\
   !*** ./resources/js/pages/admin/posts/PostDetailsPage.js ***!
@@ -8490,10 +8532,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap-icons */ "./node_modules/react-bootstrap-icons/dist/icons/plus.js");
 /* harmony import */ var _components_posts_PostsList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/posts/PostsList */ "./resources/js/components/posts/PostsList.js");
-/* harmony import */ var _components_posts_PostForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/posts/PostForm */ "./resources/js/components/posts/PostForm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -8505,6 +8548,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -8535,69 +8579,77 @@ var PostsAdminPage = function PostsAdminPage() {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "row mt-1",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "col-6 col-md-4",
         children: "Info"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "col-12 col-md-8",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_posts_PostForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          getPosts: getPosts
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+          to: "create",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+            type: "button",
+            className: "btn btn-success",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              size: 20,
+              color: "#fff"
+            }), "Create New Post"]
+          })
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "row",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "col-12",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_posts_PostsList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_posts_PostsList__WEBPACK_IMPORTED_MODULE_2__["default"], {
           posts: posts,
           deletePost: deletePost,
           getPosts: getPosts
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "row align-items-end",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "col-md-6 offset-md-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("nav", {
           "aria-label": "Page navigation example",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
             className: "pagination justify-content-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
               className: "page-item disabled",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                 className: "page-link",
                 href: "#",
                 tabIndex: "-1",
                 children: "Previous"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
               className: "page-item",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                 className: "page-link",
                 href: "#",
                 children: "1"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
               className: "page-item",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                 className: "page-link",
                 href: "#",
                 children: "2"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
               className: "page-item",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                 className: "page-link",
                 href: "#",
                 children: "3"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
               className: "page-item",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                 className: "page-link",
                 href: "#",
                 children: "Next"
@@ -34051,6 +34103,56 @@ Person.defaultProps = {
   size: '1em'
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Person);
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap-icons/dist/icons/plus.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-bootstrap-icons/dist/icons/plus.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+var Plus = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (_ref, ref) {
+  var color = _ref.color,
+      size = _ref.size,
+      rest = _objectWithoutProperties(_ref, ["color", "size"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    ref: ref,
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 16 16",
+    width: size,
+    height: size,
+    fill: color
+  }, rest), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+  }));
+});
+Plus.propTypes = {
+  color: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string),
+  size: prop_types__WEBPACK_IMPORTED_MODULE_1___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_1___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number)])
+};
+Plus.defaultProps = {
+  color: 'currentColor',
+  size: '1em'
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Plus);
 
 /***/ }),
 

@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {useState, useEffect} from 'react';
+import { Plus } from 'react-bootstrap-icons';
 import PostsList from "../../../components/posts/PostsList";
-import PostForm from "../../../components/posts/PostForm";
 
 const PostsAdminPage = () => {
   const [posts, setPosts] = useState([]);
@@ -25,12 +26,12 @@ const PostsAdminPage = () => {
 
   return (
     <div className="container">
-      <div className="row">
-      <div className="col-6 col-md-4">
+      <div className="row mt-1">
+        <div className="col-6 col-md-4">
           Info
         </div>
         <div className="col-12 col-md-8">
-          <PostForm getPosts={getPosts}/>
+          <Link to='create'><button type='button' className='btn btn-success'><Plus size={20} color="#fff"/>Create New Post</button></Link>
         </div>        
       </div>
       <div className="row">

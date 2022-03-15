@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 const PostForm = ({getPosts}) => {
   const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [category_id, setCategoryId] = useState(null);
 
   const store = (e) => {
     e.preventDefault();

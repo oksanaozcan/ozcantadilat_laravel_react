@@ -27,6 +27,7 @@ import PostsPage from "../pages/PostsPage";
 import PostsAdminPage from "../pages/admin/posts/PostsAdminPage";
 import PostEditPage from "../pages/admin/posts/PostEditPage";
 import PostDetailsPage from "../pages/admin/posts/PostDetailsPage";
+import PostCreatePage from "../pages/admin/posts/PostCreatePage";
 
 const App = () => {
   const location = useLocation();
@@ -93,6 +94,7 @@ const App = () => {
                   </Route>    
                   <Route path="posts">
                     <Route index element={<PostsAdminPage/>}/>
+                    <Route path="create" element={<PostCreatePage/>}/>
                     <Route path=":postId" element={<PostDetailsPage/>}/>
                     <Route path="edit/:postId" element={<PostEditPage/>}/>
                   </Route>                     
