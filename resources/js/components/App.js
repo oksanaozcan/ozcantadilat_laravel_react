@@ -20,7 +20,7 @@ import UsersAdminPage from "../pages/admin/UsersAdminPage";
 import CommentsAdminPage from "../pages/admin/CommentsAdminPage";
 import CategoriesAdminPage from "../pages/admin/categories/CategoriesAdminPage";
 import CategoryDetailsPage from "../pages/admin/categories/CategoryDetailsPage";
-import CategoryEditPage from "../pages/admin/categories/CategoriesEditPage";
+import CategoryEditPage from "../pages/admin/categories/CategoryEditPage";
 import TagsAdminPage from "../pages/admin/tags/TagsAdminPage";
 import TagDetailsPage from "../pages/admin/tags/TagDetailsPage";
 import TagEditPage from "../pages/admin/tags/TagEditPage";

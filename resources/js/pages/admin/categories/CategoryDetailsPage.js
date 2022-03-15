@@ -1,10 +1,11 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const CategoryDetailsPage = () => {
   const {categoryId} = useParams();
   const [category, setCategory] = useState({});
+  let navigate = useNavigate();
 
   const show = () => {
     axios.get(`/api/categories/${categoryId}`)
@@ -17,6 +18,11 @@ const CategoryDetailsPage = () => {
   useEffect(() => {
     show()
   }, []);
+
+  const deleteCategory = () => {
+    axios.delete(`/api/categories/${category.id}`)    
+    navigate('/admin/categories');   
+  }
 
   return (
     <div className="container">
@@ -68,7 +74,7 @@ const CategoryDetailsPage = () => {
         <div className="col align-self-end">
           <div className="d-flex w-75 mb-4 justify-content-around">
             <Link to={`/admin/categories/edit/${category.id}`} className="btn btn-primary btn-lg">Edit</Link>
-            <button type="button" className="btn btn-danger btn-lg">Delete</button>
+            <button type="button" className="btn btn-danger btn-lg" onClick={deleteCategory}>Delete</button>
           </div>          
         </div>
       </div>

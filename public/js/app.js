@@ -5504,7 +5504,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_admin_CommentsAdminPage__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../pages/admin/CommentsAdminPage */ "./resources/js/pages/admin/CommentsAdminPage.js");
 /* harmony import */ var _pages_admin_categories_CategoriesAdminPage__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../pages/admin/categories/CategoriesAdminPage */ "./resources/js/pages/admin/categories/CategoriesAdminPage.js");
 /* harmony import */ var _pages_admin_categories_CategoryDetailsPage__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../pages/admin/categories/CategoryDetailsPage */ "./resources/js/pages/admin/categories/CategoryDetailsPage.js");
-/* harmony import */ var _pages_admin_categories_CategoriesEditPage__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../pages/admin/categories/CategoriesEditPage */ "./resources/js/pages/admin/categories/CategoriesEditPage.js");
+/* harmony import */ var _pages_admin_categories_CategoryEditPage__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../pages/admin/categories/CategoryEditPage */ "./resources/js/pages/admin/categories/CategoryEditPage.js");
 /* harmony import */ var _pages_admin_tags_TagsAdminPage__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../pages/admin/tags/TagsAdminPage */ "./resources/js/pages/admin/tags/TagsAdminPage.js");
 /* harmony import */ var _pages_admin_tags_TagDetailsPage__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../pages/admin/tags/TagDetailsPage */ "./resources/js/pages/admin/tags/TagDetailsPage.js");
 /* harmony import */ var _pages_admin_tags_TagEditPage__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../pages/admin/tags/TagEditPage */ "./resources/js/pages/admin/tags/TagEditPage.js");
@@ -5660,7 +5660,7 @@ var App = function App() {
                     element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_pages_admin_categories_CategoryDetailsPage__WEBPACK_IMPORTED_MODULE_19__["default"], {})
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_25__.Route, {
                     path: "edit/:categoryId",
-                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_pages_admin_categories_CategoriesEditPage__WEBPACK_IMPORTED_MODULE_20__["default"], {})
+                    element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_pages_admin_categories_CategoryEditPage__WEBPACK_IMPORTED_MODULE_20__["default"], {})
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_25__.Route, {
                   path: "tags",
@@ -7651,39 +7651,6 @@ var CategoriesAdminPage = function CategoriesAdminPage() {
 
 /***/ }),
 
-/***/ "./resources/js/pages/admin/categories/CategoriesEditPage.js":
-/*!*******************************************************************!*\
-  !*** ./resources/js/pages/admin/categories/CategoriesEditPage.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _components_categories_CategoryEditForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/categories/CategoryEditForm */ "./resources/js/components/categories/CategoryEditForm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var CategoryEditPage = function CategoryEditPage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "container",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "row align-items-center page",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "col",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_categories_CategoryEditForm__WEBPACK_IMPORTED_MODULE_0__["default"], {})
-      })
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoryEditPage);
-
-/***/ }),
-
 /***/ "./resources/js/pages/admin/categories/CategoryDetailsPage.js":
 /*!********************************************************************!*\
   !*** ./resources/js/pages/admin/categories/CategoryDetailsPage.js ***!
@@ -7728,6 +7695,8 @@ var CategoryDetailsPage = function CategoryDetailsPage() {
       category = _useState2[0],
       setCategory = _useState2[1];
 
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+
   var show = function show() {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/categories/".concat(categoryId)).then(function (res) {
       setCategory(res.data.data);
@@ -7739,6 +7708,12 @@ var CategoryDetailsPage = function CategoryDetailsPage() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     show();
   }, []);
+
+  var deleteCategory = function deleteCategory() {
+    axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("/api/categories/".concat(category.id));
+    navigate('/admin/categories');
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "container",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -7870,6 +7845,7 @@ var CategoryDetailsPage = function CategoryDetailsPage() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
             className: "btn btn-danger btn-lg",
+            onClick: deleteCategory,
             children: "Delete"
           })]
         })
@@ -7879,6 +7855,39 @@ var CategoryDetailsPage = function CategoryDetailsPage() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoryDetailsPage);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/categories/CategoryEditPage.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/pages/admin/categories/CategoryEditPage.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_categories_CategoryEditForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/categories/CategoryEditForm */ "./resources/js/components/categories/CategoryEditForm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var CategoryEditPage = function CategoryEditPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "container",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "row align-items-center page",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "col",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_categories_CategoryEditForm__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CategoryEditPage);
 
 /***/ }),
 
@@ -7926,12 +7935,19 @@ var TagDetailsPage = function TagDetailsPage() {
       tag = _useState2[0],
       setTag = _useState2[1];
 
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+
   var show = function show() {
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/tags/".concat(tagId)).then(function (res) {
       setTag(res.data.data);
     })["catch"](function (error) {
       return console.log(error.res);
     });
+  };
+
+  var deleteTag = function deleteTag() {
+    axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("/api/tags/".concat(tag.id));
+    navigate('/admin/tags');
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
@@ -8068,6 +8084,7 @@ var TagDetailsPage = function TagDetailsPage() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
             className: "btn btn-danger btn-lg",
+            onClick: deleteTag,
             children: "Delete"
           })]
         })
