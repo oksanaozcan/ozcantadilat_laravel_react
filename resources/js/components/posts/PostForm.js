@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const PostForm = ({getPosts}) => {
   const [title, setTitle] = useState('');
@@ -8,11 +10,9 @@ const PostForm = ({getPosts}) => {
 
   const store = (e) => {
     e.preventDefault();
-
     let data = {
       title: title.trim()
     }
-
     if (data.title !== '') {
       axios.post('/api/posts/store', data)
       .then(res => {
@@ -23,7 +23,6 @@ const PostForm = ({getPosts}) => {
     } else {
       console.log('error: title must be required');
     }
-
   }
 
   return (
@@ -33,6 +32,15 @@ const PostForm = ({getPosts}) => {
         <form onSubmit={store}>
           <div className="form-group mb-3">
             <input type="text" className="form-control" placeholder="Enter Title of Post" name="title" value={title} onChange={e => setTitle(e.target.value)}/>       
+          </div>
+          <div className="form-group mb-3">
+          <Editor
+            editorState={content}
+            toolbarClassName="toolbarClassName"
+            wrapperClassName="wrapperClassName"
+            editorClassName="editorClassName"
+            onEditorStateChange={setContent}
+          />
           </div>
           <div className="d-block">
           <button type="submit" className="btn btn-primary btn-lg btn-block mt-1 w-100">Submit</button> 
