@@ -17,6 +17,14 @@ Route::prefix('categories')->group(function () {
   Route::delete('/{category}', App\Http\Controllers\Admin\Category\DeleteController::class);
 });
 
+Route::prefix('tags')->group(function () {
+  Route::get('/', App\Http\Controllers\Admin\Tag\IndexController::class);  
+  Route::get('/{tag}', App\Http\Controllers\Admin\Tag\ShowController::class);  
+  Route::post('/store', App\Http\Controllers\Admin\Tag\StoreController::class);
+  Route::patch('/{tag}', App\Http\Controllers\Admin\Tag\UpdateController::class);
+  Route::delete('/{tag}', App\Http\Controllers\Admin\Tag\DeleteController::class);
+});
+
 
 
 

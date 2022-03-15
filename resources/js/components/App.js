@@ -19,9 +19,11 @@ import PostsAdminPage from "../pages/admin/PostsAdminPage";
 import UsersAdminPage from "../pages/admin/UsersAdminPage";
 import CommentsAdminPage from "../pages/admin/CommentsAdminPage";
 import CategoriesAdminPage from "../pages/admin/categories/CategoriesAdminPage";
-import TagsAdminPage from "../pages/admin/TagsAdminPage";
 import CategoryDetailsPage from "../pages/admin/categories/CategoryDetailsPage";
 import CategoryEditPage from "../pages/admin/categories/CategoriesEditPage";
+import TagsAdminPage from "../pages/admin/tags/TagsAdminPage";
+import TagDetailsPage from "../pages/admin/tags/TagDetailsPage";
+import TagEditPage from "../pages/admin/tags/TagEditPage";
 
 const App = () => {
   const location = useLocation();
@@ -81,7 +83,11 @@ const App = () => {
                     <Route path=":categoryId" element={<CategoryDetailsPage/>}/>
                     <Route path="edit/:categoryId" element={<CategoryEditPage/>}/>
                   </Route>
-                  <Route path="tags" element={<TagsAdminPage/>}/>
+                  <Route path="tags">
+                    <Route index element={<TagsAdminPage/>}/>
+                    <Route path=":tagId" element={<TagDetailsPage/>}/>
+                    <Route path="edit/:tagId" element={<TagEditPage/>}/>
+                  </Route>                  
                 </Route>               
               </Route>              
               <Route path="*" element={<NoMatchPage />} />         
