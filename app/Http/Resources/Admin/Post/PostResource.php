@@ -19,6 +19,7 @@ class PostResource extends JsonResource
           'id' => $this->id,
           'title' => $this->title,
           'content' => $this->content,
+          // 'preview_image' => $this->preview_image,
           'category_id' => $this->category_id,
           'created_at' => Carbon::parse($this->created_at)->format('M d Y') 
         ];

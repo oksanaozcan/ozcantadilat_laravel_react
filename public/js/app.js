@@ -6938,39 +6938,40 @@ var PostForm = function PostForm(_ref) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
       title = _useState2[0],
-      setTitle = _useState2[1];
+      setTitle = _useState2[1]; // const [category_id, setCategoryId] = useState(null);
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      category_id = _useState4[0],
-      setCategoryId = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(function () {
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(function () {
     return draft_js__WEBPACK_IMPORTED_MODULE_2__.EditorState.createEmpty();
   }),
-      _useState6 = _slicedToArray(_useState5, 2),
-      editorState = _useState6[0],
-      setEditorState = _useState6[1]; // const html = convertToHTML(editorState.getCurrentContent());
+      _useState4 = _slicedToArray(_useState3, 2),
+      editorState = _useState4[0],
+      setEditorState = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    file: null
+  }),
+      _useState6 = _slicedToArray(_useState5, 2),
+      previewImage = _useState6[0],
+      setPreviewImage = _useState6[1];
 
   var store = function store(e) {
     e.preventDefault();
-    var data = {
-      title: title.trim(),
-      content: (0,draft_convert__WEBPACK_IMPORTED_MODULE_4__.convertToHTML)(editorState.getCurrentContent())
+    var content = (0,draft_convert__WEBPACK_IMPORTED_MODULE_4__.convertToHTML)(editorState.getCurrentContent());
+    var data = new FormData();
+    data.append('title', title);
+    data.append('content', content);
+    data.append('preview_image', previewImage);
+    var config = {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
     };
-    console.log(data);
-
-    if (data.title !== '') {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/posts/store', data).then(function (res) {
-        setTitle('');
-        getPosts();
-      })["catch"](function (error) {
-        return console.log(error.res);
-      });
-    } else {
-      console.log('error: title must be required');
-    }
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/posts/store', data, config).then(function (res) {
+      getPosts();
+    })["catch"](function (error) {
+      return console.log(error.res);
+    });
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -6994,16 +6995,33 @@ var PostForm = function PostForm(_ref) {
               return setTitle(e.target.value);
             }
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "form-group mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_draft_wysiwyg__WEBPACK_IMPORTED_MODULE_3__.Editor, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_draft_wysiwyg__WEBPACK_IMPORTED_MODULE_3__.Editor, {
             editorState: editorState,
             onEditorStateChange: setEditorState,
             wrapperClassName: "border border-secondary",
             editorClassName: "bg-light",
             toolbarClassName: "bg-secondary"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "jumbotron mt-2"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "form-group mb-3 mt-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "mb-1",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+              htmlFor: "preview_image",
+              children: "Preview Image "
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "file",
+            id: "preview_image",
+            className: "form-control-file",
+            name: "preview_image",
+            onChange: function onChange(e) {
+              return setPreviewImage({
+                file: e.target.files[0]
+              });
+            }
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "d-block",
@@ -7065,9 +7083,6 @@ var PostsList = function PostsList(_ref) {
             children: "Title"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
             scope: "col",
-            children: "Content"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
-            scope: "col",
             children: "Created_at"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
             scope: "col",
@@ -7091,8 +7106,6 @@ var PostsList = function PostsList(_ref) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
               children: item.title
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", {
-              children: item.content
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
               children: item.created_at
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {

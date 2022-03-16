@@ -13,8 +13,7 @@ const PostsList = ({posts, deletePost, getPosts}) => {
       <table className="table">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Content</th>
+            <th scope="col">Title</th>           
             <th scope="col">Created_at</th>           
             <th scope="col">N# posts</th>           
             <th scope="col">N# images</th>           
@@ -27,8 +26,7 @@ const PostsList = ({posts, deletePost, getPosts}) => {
           {
             posts.map(item => (
               <tr key={item.id}>
-                <th>{item.title}</th>
-                <th>{item.content}</th>
+                <th>{item.title}</th>               
                 <td>{item.created_at}</td>
                 <td>5555</td>
                 <td>4444</td>
