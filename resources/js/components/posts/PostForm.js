@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { EditorState } from 'draft-js';
+import {useDropzone} from 'react-dropzone';
 import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -11,8 +12,14 @@ const PostForm = ({getPosts}) => {
   const [editorState, setEditorState] = useState(
     () => EditorState.createEmpty(),
   ); 
-  const [previewImage, setPreviewImage] = useState({file: null});
-    
+  const [dropedFiles, setDropedFiles] = useState([]);  
+
+  const onDrop = useCallback(acceptedFiles => {
+    setDropedFiles(state => [...state, ...acceptedFiles])
+  }, [])  
+
+  const {acceptedFiles, getRootProps, getInputProps} = useDropzone({onDrop});
+     
   const store = (e) => {
     e.preventDefault();
 
@@ -21,8 +28,10 @@ const PostForm = ({getPosts}) => {
     let data = new FormData();
     data.append('title', title);
     data.append('content', content);
-    data.append('preview_image', previewImage);
-    
+    dropedFiles.forEach(file => {
+      data.append('preview_image', file)      
+    })
+
     const config = {
       headers: {
           'content-type': 'multipart/form-data'
@@ -31,11 +40,21 @@ const PostForm = ({getPosts}) => {
 
     axios.post('/api/posts/store', data, config)
     .then(res => {
-      getPosts();
+      if (res.status == 200) {
+        setTitle('');
+        setEditorState(() => EditorState.createEmpty());
+        setDropedFiles([]);
+      }
     })
     .catch(error => console.log(error.res))
     
   }
+
+  const files = dropedFiles.map(file => (
+    <li className='list-group-item' key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
 
   return (
     <div className="card mt-1">
@@ -57,12 +76,13 @@ const PostForm = ({getPosts}) => {
             />     
           </div>
 
-          <div className="form-group mb-3 mt-3">
-            <div className='mb-1'>
-              <label htmlFor="preview_image">Preview Image </label>
-            </div>            
-            <input type="file" id='preview_image' className="form-control-file" name='preview_image' onChange={e => setPreviewImage({file:e.target.files[0]})}/>
-          </div>      
+          <div {...getRootProps({className: 'dropzone'})} className="bg-secondary text-light p-3 btn">
+            <input {...getInputProps()} />
+            <p>Drag 'n' drop some files here, or click to select files</p>
+          </div>  
+          <div>
+            <ul className='list-group'>{files}</ul>
+          </div>          
 
           <div className="d-block">
             <button type="submit" className="btn btn-primary btn-lg btn-block mt-1 w-100">Submit</button> 
