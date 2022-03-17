@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin\Post;
 
+use App\Http\Resources\Admin\Picture\PictureResource;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,7 +20,7 @@ class PostResource extends JsonResource
           'id' => $this->id,
           'title' => $this->title,
           'content' => $this->content,
-          // 'preview_image' => $this->preview_image,
+          'images' => PictureResource::collection($this->pictures),
           'category_id' => $this->category_id,
           'created_at' => Carbon::parse($this->created_at)->format('M d Y') 
         ];

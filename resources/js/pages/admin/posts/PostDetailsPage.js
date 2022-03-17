@@ -5,18 +5,20 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 const PostDetailsPage = () => {
   const {postId} = useParams();
   const [post, setPost] = useState({});
+  const [images, setImages] = useState([]);
   let navigate = useNavigate();
 
   const show = () => {
     axios.get(`/api/posts/${postId}`)
     .then(res => {
       setPost(res.data.data);
+      setImages(res.data.data.images);
     })
     .catch(error => console.log(error.res))
   }
 
   useEffect(() => {
-    show()   
+    show()      
   }, []);
 
   const deletePost = () => {
@@ -62,7 +64,26 @@ const PostDetailsPage = () => {
           </nav>
         </div>
         <div className="col align-self-center">
-          <div className="card">
+
+          <div>
+            {
+              images.map(img => (
+                <div key={img.url}>
+                  <img   
+                   style={{ width: '100%', height: '20%' }}                           
+                  src={img.url} 
+                  alt={post.title}              
+                />
+                {/* <img                              
+                  src={img.preview_url} 
+                  alt={post.title}              
+                />             */}
+                </div>                
+              ))
+            }          
+          </div>
+          
+          <div className="card">         
             <div className="card-body">
               <h5 className="card-title">{post.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{post.created_at}</h6>

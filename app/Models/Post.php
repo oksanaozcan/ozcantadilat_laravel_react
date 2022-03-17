@@ -11,4 +11,8 @@ class Post extends Model
 
     protected $table = 'posts';
     protected $guarded = false;
+
+    public function pictures() {
+      return $this->hasMany(Picture::class, 'post_id', 'id');
+    }
 }

@@ -13,6 +13,7 @@ const PostsList = ({posts, deletePost, getPosts}) => {
       <table className="table">
         <thead className="thead-dark">
           <tr>
+            <th scope="col">Prev_img</th>           
             <th scope="col">Title</th>           
             <th scope="col">Created_at</th>           
             <th scope="col">N# posts</th>           
@@ -26,6 +27,18 @@ const PostsList = ({posts, deletePost, getPosts}) => {
           {
             posts.map(item => (
               <tr key={item.id}>
+                <th>
+                  {
+                    item.images.map(img => (
+                      <img
+                        style={{ width: '50px', height: '50px' }} 
+                        key={img.preview_url}                           
+                        src={img.preview_url} 
+                        alt={item.title}              
+                      />      
+                    ))
+                  }
+                </th>               
                 <th>{item.title}</th>               
                 <td>{item.created_at}</td>
                 <td>5555</td>
