@@ -7045,9 +7045,9 @@ var PostForm = function PostForm(_ref) {
     });
   };
 
-  var files = dropedFiles.map(function (file) {
+  var files = dropedFiles.map(function (file, i) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
-      className: "list-group-item",
+      className: "list-group-item ".concat(i + 1 == dropedFiles.length ? 'text-success' : 'text-danger'),
       children: [file.path, " - ", file.size, " bytes"]
     }, file.path);
   });

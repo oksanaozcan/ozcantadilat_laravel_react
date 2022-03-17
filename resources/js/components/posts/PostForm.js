@@ -50,8 +50,12 @@ const PostForm = ({getPosts}) => {
     
   }
 
-  const files = dropedFiles.map(file => (
-    <li className='list-group-item' key={file.path}>
+  const files = dropedFiles.map((file, i) => (
+    <li className={`list-group-item ${
+        i+1 == dropedFiles.length ?
+        'text-success' : 
+        'text-danger'
+    }`} key={file.path}>
       {file.path} - {file.size} bytes
     </li>
   ));
