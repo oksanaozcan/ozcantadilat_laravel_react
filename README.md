@@ -76,3 +76,5 @@ TASCS:
 5. Redux with tools
 6. gallery page
 7. /user or /profile ... /profile/${userId} ... /settings/${userId}
+8. work panel for contracts and other...
+9. refactoring with services && || redux
