@@ -1,5 +1,5 @@
 import { ProSidebar, SidebarHeader, SidebarFooter, SidebarContent, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { House, FileCode, Image, CardText, People, ChatDots, Bookmark, Tag } from 'react-bootstrap-icons';
+import { House, FileCode, Image, CardText, People, ChatDots, Bookmark, Tag, ListColumns, PlusSquare } from 'react-bootstrap-icons';
 import { NavLink } from 'react-router-dom';
 
 const MyProSidebar = () => {
@@ -17,9 +17,14 @@ const MyProSidebar = () => {
           <MenuItem icon={<Image />}>
             <NavLink to='images'>Images</NavLink>
           </MenuItem>
-          <MenuItem icon={<CardText />}>
-            <NavLink to='posts'>Posts</NavLink>
-          </MenuItem>         
+          <SubMenu title="Posts" icon={<CardText />}>
+            <MenuItem icon={<ListColumns />}>
+              <NavLink to='posts'>All</NavLink>
+            </MenuItem>          
+            <MenuItem icon={<PlusSquare />}>
+              <NavLink to='posts/create'>Create New</NavLink>
+            </MenuItem>                      
+          </SubMenu>                
           <MenuItem icon={<Bookmark />}>
             <NavLink to='categories'>Categories</NavLink>
           </MenuItem>

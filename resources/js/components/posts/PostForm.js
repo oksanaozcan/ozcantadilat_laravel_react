@@ -4,7 +4,9 @@ import { EditorState } from 'draft-js';
 import {useDropzone} from 'react-dropzone';
 import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert';
+import Select from 'react-select';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { getFields } from '../../helpers/helperFunctions';
 
 const PostForm = () => {
   const [title, setTitle] = useState('');  
@@ -12,25 +14,32 @@ const PostForm = () => {
     () => EditorState.createEmpty(),
   ); 
   const [dropedFiles, setDropedFiles] = useState([]);  
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]); //refactoring from props or redux
   const [selectedCategory, setSelectedCategory] = useState({id: ''});
+  const [tags, setTags] = useState([]); //refactoring from props or redux
+  const [selectedTags, setSelectedTags] = useState([]);
 
   const onDrop = useCallback(acceptedFiles => {
     setDropedFiles(state => [...state, ...acceptedFiles])
   }, [])  
-
   const {acceptedFiles, getRootProps, getInputProps} = useDropzone({onDrop});
      
   const store = (e) => {
-    e.preventDefault();
+    e.preventDefault();    
     let content = convertToHTML(editorState.getCurrentContent());
+    let tagIdx = getFields(selectedTags);
+
     let data = new FormData();
     data.append('title', title);
     data.append('content', content);
     dropedFiles.forEach(file => {
       data.append('preview_image', file)      
-    })
+    })    
     data.append('category_id', selectedCategory.id)
+    tagIdx.forEach(id => {
+      data.append('tags[]', id)
+    })
+    
     const config = {
       headers: {
           'content-type': 'multipart/form-data'
@@ -43,6 +52,7 @@ const PostForm = () => {
         setEditorState(() => EditorState.createEmpty());
         setDropedFiles([]);
         setSelectedCategory({id: ''});
+        setSelectedTags([]);
       }
     })
     .catch(error => console.log(error.res))    
@@ -56,8 +66,17 @@ const PostForm = () => {
     .catch(e => console.log(e.res));
   } 
 
+  const getTags = () => {
+    axios.get('/api/tags')
+    .then(res => {
+      setTags(res.data.data);      
+    })
+    .catch(e => console.log(e.res));
+  } 
+
   useEffect(() => {
     getCategories();
+    getTags();
   }, []);
 
   const files = dropedFiles.map((file, i) => (
@@ -114,6 +133,23 @@ const PostForm = () => {
             </select> 
           </div>
 
+          <div className='form-group  mt-3 mb-5'>
+            <label htmlFor="select_tags" className="form-label">Select #Tags</label>
+            <Select
+              name='tags[]'
+              id='select_tags'
+              className='mb-5'
+              isMulti
+              defaultValue={selectedTags}
+              onChange={setSelectedTags}            
+              getOptionLabel={option => option.title}
+              getOptionValue={option => option.id}
+              options={tags}              
+            />
+          </div>
+
+          
+
           <div className="d-block">
             <button type="submit" className="btn btn-primary btn-lg btn-block mt-1 w-100">Submit</button> 
           </div>                   
@@ -124,3 +160,4 @@ const PostForm = () => {
 }
 
 export default PostForm;
+
