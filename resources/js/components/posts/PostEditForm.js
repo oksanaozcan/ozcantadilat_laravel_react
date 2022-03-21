@@ -61,15 +61,11 @@ const PostEditForm = ({categories, tags}) => {
       }
     }
 
-    if (data.title !== '') {
-      axios.patch(`/api/posts/${postId}`, data, config)
+    axios.patch(`/api/posts/${postId}`, data, config)
     .then(res => {
       // navigate('/admin/posts');
     })
-    .catch(error => console.log(error.res))
-    } else {
-      console.log('title have to be required');
-    }  
+    .catch(error => console.log(error.res))      
   }
 
  

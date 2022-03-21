@@ -23,22 +23,21 @@ class UpdateController extends Controller
       $picture = $data['preview_image'];
       unset($data['preview_image']);
                  
-      $post->update($data);
-
       $filePath = Storage::disk('public')->put('pictures', $picture);      
       $prev_name = explode('pictures/', $filePath);      
       $prev_name = implode('', $prev_name);
+      
+      $post->update($data);
+      // Picture::create([
+      //   'path' => $filePath,
+      //   'url' => url('/storage/' . $filePath),
+      //   'preview_url' => url('/storage/pictures/preview' . $prev_name),
+      //   'post_id' => $post->id
+      // ]);  
 
-      Picture::create([
-        'path' => $filePath,
-        'url' => url('/storage/' . $filePath),
-        'preview_url' => url('/storage/pictures/preview' . $prev_name),
-        'post_id' => $post->id
-      ]);  
+      // Image::make($picture)->fit(100,100)->save(storage_path('app/public/pictures/preview' . $prev_name));
 
-      Image::make($picture)->fit(100,100)->save(storage_path('app/public/pictures/preview' . $prev_name));
-
-      $post->tags()->attach($tagIds);
+      $post->tags()->sync($tagIds);
 
       return response()->json(['message' => 'success']);
 
