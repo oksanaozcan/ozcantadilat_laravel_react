@@ -14,9 +14,9 @@ class UpdateController extends Controller
 {
   public function __invoke(UpdateRequest $request, Post $post)
   {
-    try {      
+    try {     
       $data = $request->validated();
-
+     
       $tagIds = $data['tags'];
       unset($data['tags']);
 
@@ -28,14 +28,14 @@ class UpdateController extends Controller
       $prev_name = implode('', $prev_name);
       
       $post->update($data);
-      // Picture::create([
-      //   'path' => $filePath,
-      //   'url' => url('/storage/' . $filePath),
-      //   'preview_url' => url('/storage/pictures/preview' . $prev_name),
-      //   'post_id' => $post->id
-      // ]);  
-
-      // Image::make($picture)->fit(100,100)->save(storage_path('app/public/pictures/preview' . $prev_name));
+      
+      Picture::where('post_id', $post->id)
+        ->update([
+          'path' => $filePath,
+          'url' => url('/storage/' . $filePath),
+          'preview_url' => url('/storage/pictures/preview' . $prev_name)
+        ]);
+      Image::make($picture)->fit(100,100)->save(storage_path('app/public/pictures/preview' . $prev_name));
 
       $post->tags()->sync($tagIds);
 

@@ -23,13 +23,13 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-      return [
-        'title' => 'required',
-        'content' => 'required',
-        'preview_image' => 'nullable',          
-        'category_id' => 'nullable|exists:categories,id',
-        'tags' => 'nullable|array',
-        'tags.*' => 'nullable|exists:tags,id'
-      ];
+        return [
+          'title' => 'required|string',
+          'content' => 'required',
+          'preview_image' => 'nullable',          
+          'category_id' => 'nullable|exists:categories,id',
+          'tags' => 'nullable|array',
+          'tags.*' => 'nullable|exists:tags,id',
+        ];
     }
 }

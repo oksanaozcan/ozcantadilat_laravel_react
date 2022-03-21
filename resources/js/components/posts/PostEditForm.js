@@ -53,7 +53,8 @@ const PostEditForm = ({categories, tags}) => {
     data.append('category_id', selectedCategory.id)
     tagIdx.forEach(id => {
       data.append('tags[]', id)
-    })
+    });
+    data.append('_method', 'PATCH');
     
     const config = {
       headers: {
@@ -61,7 +62,7 @@ const PostEditForm = ({categories, tags}) => {
       }
     }
 
-    axios.patch(`/api/posts/${postId}`, data, config)
+    axios.post(`/api/posts/${postId}`, data, config)
     .then(res => {
       // navigate('/admin/posts');
     })
