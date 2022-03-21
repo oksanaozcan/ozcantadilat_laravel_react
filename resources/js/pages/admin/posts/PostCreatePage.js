@@ -1,9 +1,9 @@
 import PostForm from "../../../components/posts/PostForm"
 
-const PostCreatePage = () => {
+const PostCreatePage = ({categories, tags}) => {
   return (
     <>
-      <PostForm/>
+      <PostForm categories={categories} tags={tags}/>
     </>    
   )
 }

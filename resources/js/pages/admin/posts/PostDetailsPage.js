@@ -6,6 +6,7 @@ const PostDetailsPage = () => {
   const {postId} = useParams();
   const [post, setPost] = useState({});
   const [images, setImages] = useState([]);
+  const [tags, setTags] = useState([]);
   let navigate = useNavigate();
 
   const show = () => {
@@ -13,6 +14,7 @@ const PostDetailsPage = () => {
     .then(res => {
       setPost(res.data.data);
       setImages(res.data.data.images);
+      setTags(res.data.data.tags);
     })
     .catch(error => console.log(error.res))
   }
@@ -71,13 +73,9 @@ const PostDetailsPage = () => {
                 <div key={img.url}>
                   <img   
                    style={{ width: '100%', height: '20%' }}                           
-                  src={img.url} 
-                  alt={post.title}              
-                />
-                {/* <img                              
-                  src={img.preview_url} 
-                  alt={post.title}              
-                />             */}
+                    src={img.url} 
+                    alt={post.title}              
+                  />                
                 </div>                
               ))
             }          
@@ -89,8 +87,13 @@ const PostDetailsPage = () => {
               <h6 className="card-subtitle mb-2 text-muted">{post.created_at}</h6>
 
               <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-              
-              <p className="card-text">text</p>            
+              <ul className='list-group'>#Tags
+                {
+                  tags.map(tag => (
+                    <li key={tag.id} className="card-text list-group-item">{tag.title}</li>     
+                  ))
+                }
+              </ul>
             </div>
           </div>
         </div>

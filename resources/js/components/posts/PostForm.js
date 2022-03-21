@@ -8,15 +8,13 @@ import Select from 'react-select';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { getFields } from '../../helpers/helperFunctions';
 
-const PostForm = () => {
+const PostForm = ({categories, tags}) => {
   const [title, setTitle] = useState('');  
   const [editorState, setEditorState] = useState(
     () => EditorState.createEmpty(),
   ); 
-  const [dropedFiles, setDropedFiles] = useState([]);  
-  const [categories, setCategories] = useState([]); //refactoring from props or redux
-  const [selectedCategory, setSelectedCategory] = useState({id: ''});
-  const [tags, setTags] = useState([]); //refactoring from props or redux
+  const [dropedFiles, setDropedFiles] = useState([]);   
+  const [selectedCategory, setSelectedCategory] = useState({id: ''});  
   const [selectedTags, setSelectedTags] = useState([]);
 
   const onDrop = useCallback(acceptedFiles => {
@@ -56,28 +54,7 @@ const PostForm = () => {
       }
     })
     .catch(error => console.log(error.res))    
-  }
-
-  const getCategories = () => {
-    axios.get('/api/categories')
-    .then(res => {
-      setCategories(res.data.data);      
-    })
-    .catch(e => console.log(e.res));
-  } 
-
-  const getTags = () => {
-    axios.get('/api/tags')
-    .then(res => {
-      setTags(res.data.data);      
-    })
-    .catch(e => console.log(e.res));
-  } 
-
-  useEffect(() => {
-    getCategories();
-    getTags();
-  }, []);
+  }  
 
   const files = dropedFiles.map((file, i) => (
     <li className={`list-group-item ${
@@ -146,9 +123,7 @@ const PostForm = () => {
               getOptionValue={option => option.id}
               options={tags}              
             />
-          </div>
-
-          
+          </div>          
 
           <div className="d-block">
             <button type="submit" className="btn btn-primary btn-lg btn-block mt-1 w-100">Submit</button> 

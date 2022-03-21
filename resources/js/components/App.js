@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import Layout from "../pages/Layout";
@@ -30,6 +31,30 @@ import PostDetailsPage from "../pages/admin/posts/PostDetailsPage";
 import PostCreatePage from "../pages/admin/posts/PostCreatePage";
 
 const App = () => {
+  const [categories, setCategories] = useState([]); //refactoring from context or redux
+  const [tags, setTags] = useState([]); //refactoring from context or redux
+  
+  const getCategories = () => {
+    axios.get('/api/categories')
+    .then(res => {
+      setCategories(res.data.data);      
+    })
+    .catch(e => console.log(e.res));
+  } 
+
+  const getTags = () => {
+    axios.get('/api/tags')
+    .then(res => {
+      setTags(res.data.data);      
+    })
+    .catch(e => console.log(e.res));
+  }
+
+  useEffect(() => {
+    getCategories();
+    getTags();
+  }, []);
+
   const location = useLocation();
 
   const [isAuth, setIsAuth] = useState(false);
@@ -94,9 +119,9 @@ const App = () => {
                   </Route>    
                   <Route path="posts">
                     <Route index element={<PostsAdminPage/>}/>
-                    <Route path="create" element={<PostCreatePage/>}/>
+                    <Route path="create" element={<PostCreatePage categories={categories} tags={tags}/>}/>
                     <Route path=":postId" element={<PostDetailsPage/>}/>
-                    <Route path="edit/:postId" element={<PostEditPage/>}/>
+                    <Route path="edit/:postId" element={<PostEditPage categories={categories} tags={tags}/>}/>
                   </Route>                     
                 </Route>               
               </Route>              
