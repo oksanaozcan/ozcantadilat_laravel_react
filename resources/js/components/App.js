@@ -16,7 +16,6 @@ import AdminProtectedRoutes from "./AdminProtectedRoutes";
 import AdminLayout from "../pages/admin/AdminLayout";
 import DashboardPage from "../pages/admin/DashboardPage";
 import ImagesAdminPage from "../pages/admin/ImagesAdminPage";
-import UsersAdminPage from "../pages/admin/UsersAdminPage";
 import CommentsAdminPage from "../pages/admin/CommentsAdminPage";
 import CategoriesAdminPage from "../pages/admin/categories/CategoriesAdminPage";
 import CategoryDetailsPage from "../pages/admin/categories/CategoryDetailsPage";
@@ -29,6 +28,9 @@ import PostsAdminPage from "../pages/admin/posts/PostsAdminPage";
 import PostEditPage from "../pages/admin/posts/PostEditPage";
 import PostDetailsPage from "../pages/admin/posts/PostDetailsPage";
 import PostCreatePage from "../pages/admin/posts/PostCreatePage";
+import UsersAdminPage from "../pages/admin/users/UsersAdminPage";
+import UserDetailsPage from "../pages/admin/users/UserDetailsPage";
+import UserEditPage from "../pages/admin/users/UserEditPage";
 
 const App = () => {
   const [categories, setCategories] = useState([]); //refactoring from context or redux
@@ -104,8 +106,7 @@ const App = () => {
               <Route element={<AdminProtectedRoutes isAdmin={isAdmin}/>}>               
                 <Route path='admin' element={<AdminLayout/>}>
                   <Route index element={<DashboardPage/>}/>
-                  <Route path="images" element={<ImagesAdminPage/>}/>                 
-                  <Route path="users" element={<UsersAdminPage/>}/>
+                  <Route path="images" element={<ImagesAdminPage/>}/>                                   
                   <Route path="comments" element={<CommentsAdminPage/>}/>
                   <Route path="categories">
                     <Route index element={<CategoriesAdminPage/>}/>
@@ -122,7 +123,12 @@ const App = () => {
                     <Route path="create" element={<PostCreatePage categories={categories} tags={tags}/>}/>
                     <Route path=":postId" element={<PostDetailsPage/>}/>
                     <Route path="edit/:postId" element={<PostEditPage categories={categories} tags={tags}/>}/>
-                  </Route>                     
+                  </Route>        
+                  <Route path="users">
+                    <Route index element={<UsersAdminPage/>}/>
+                    <Route path=":userId" element={<UserDetailsPage/>}/>
+                    <Route path="edit/:userId" element={<UserEditPage/>}/>
+                  </Route>             
                 </Route>               
               </Route>              
               <Route path="*" element={<NoMatchPage />} />         

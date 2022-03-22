@@ -33,6 +33,14 @@ Route::prefix('posts')->group(function () {
   Route::delete('/{post}', App\Http\Controllers\Admin\Post\DeleteController::class);
 });
 
+Route::prefix('users')->group(function () {
+  Route::get('/', App\Http\Controllers\Admin\User\IndexController::class);  
+  Route::get('/{user}', App\Http\Controllers\Admin\User\ShowController::class);  
+  Route::post('/store', App\Http\Controllers\Admin\User\StoreController::class);
+  Route::patch('/{user}', App\Http\Controllers\Admin\User\UpdateController::class);
+  Route::delete('/{user}', App\Http\Controllers\Admin\User\DeleteController::class);
+});
+
 
 
 

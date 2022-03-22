@@ -67,8 +67,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 TASCS:
 
-!!!!: Update Post Controller error functional
-
 1. Message about error for user, formik validation;
 <!-- 1. Redirect after login or register(after success register auth logged); -->
 <!-- 2. transition animation between pages RRD v6. -->
@@ -80,5 +78,5 @@ TASCS:
 7. /user or /profile ... /profile/${userId} ... /settings/${userId}
 8. work panel for contracts and other...
 9. refactoring with services && || redux
-10. post form edit form refactoring query to base all category and tags
-11. post editor dont save color of font (may be bootstrap main)
+10. post editor dont save color of font (may be bootstrap main).
+11. to thinck functional for storage (delete or not after update picture).
