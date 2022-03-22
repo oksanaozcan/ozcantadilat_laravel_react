@@ -4,13 +4,15 @@ import { useState } from 'react';
 const UserForm = ({getUsers}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const store = (e) => {
     e.preventDefault();
 
     let data = {
       name: name.trim(),
-      email: email.trim()
+      email: email.trim(),
+      password: password.trim()
     }
 
     if (data.title !== '' && data.email !== '') {
@@ -18,6 +20,7 @@ const UserForm = ({getUsers}) => {
       .then(res => {
         setName('');
         setEmail('');
+        setPassword('');
         getUsers();
       })
       .catch(error => console.log(error.res))
@@ -37,6 +40,9 @@ const UserForm = ({getUsers}) => {
           </div>
           <div className="form-group mb-3">
             <input type="email" className="form-control" placeholder="Enter Email" name="email" value={email} onChange={e => setEmail(e.target.value)}/>       
+          </div>
+          <div className="form-group mb-3">
+            <input type="password" className="form-control" placeholder="Enter Password" name="password" value={password} onChange={e => setPassword(e.target.value)}/>       
           </div>
           <div className="d-block">
           <button type="submit" className="btn btn-primary btn-lg btn-block mt-1 w-100">Submit</button> 
