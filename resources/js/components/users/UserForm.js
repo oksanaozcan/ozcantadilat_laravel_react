@@ -4,8 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const UserForm = ({getUsers, roles}) => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');  
   const [role, setRole] = useState('1');
 
   const store = (e) => {
@@ -13,8 +12,7 @@ const UserForm = ({getUsers, roles}) => {
 
     let data = {
       name: name.trim(),
-      email: email.trim(),
-      password: password.trim(),
+      email: email.trim(),     
       role: role
     }
 
@@ -22,8 +20,7 @@ const UserForm = ({getUsers, roles}) => {
       axios.post('/api/users/store', data)
       .then(res => {
         setName('');
-        setEmail('');
-        setPassword('');
+        setEmail('');       
         setRole('1');
         getUsers();
       })
@@ -44,10 +41,7 @@ const UserForm = ({getUsers, roles}) => {
           </div>
           <div className="form-group mb-3">
             <input type="email" className="form-control" placeholder="Enter Email" name="email" value={email} onChange={e => setEmail(e.target.value)}/>       
-          </div>
-          <div className="form-group mb-3">
-            <input type="password" className="form-control" placeholder="Enter Password" name="password" value={password} onChange={e => setPassword(e.target.value)}/>       
-          </div>
+          </div>         
 
           <div className='form-group  mt-2 mb-3'>          
             <label className="form-label">Select Role</label>

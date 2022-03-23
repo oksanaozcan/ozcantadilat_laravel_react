@@ -43,25 +43,3 @@ Route::prefix('users')->group(function () {
   Route::patch('/{user}', App\Http\Controllers\Admin\User\UpdateController::class);
   Route::delete('/{user}', App\Http\Controllers\Admin\User\DeleteController::class);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Route::get('/{category}', function ($category) {
-  //   return new CategoryResource(Category::findOrFail($category));
-  // });

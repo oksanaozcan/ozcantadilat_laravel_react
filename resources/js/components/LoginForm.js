@@ -25,8 +25,7 @@ const LoginForm = ({setIsAuth, checkUserRole}) => {
           setEmail('');
           setPassword('');
           axios.get('/api/user')
-          .then(user => {
-            console.log(user)
+          .then(user => {            
             localStorage.setItem('role', user.data.role)
             checkUserRole(localStorage.getItem('role'))
           })
