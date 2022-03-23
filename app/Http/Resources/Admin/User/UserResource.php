@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin\User;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,7 +21,7 @@ class UserResource extends JsonResource
           'name' => $this->name,
           'email' => $this->email,
           'role' => $this->role,
-          'created_at' => Carbon::parse($this->created_at)->format('M d Y') 
+          'created_at' => Carbon::parse($this->created_at)->format('M d Y')
         ];
     }
 }

@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-const UserForm = ({getUsers}) => {
+const UserForm = ({getUsers, roles}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('1');
 
   const store = (e) => {
     e.preventDefault();
@@ -12,7 +14,8 @@ const UserForm = ({getUsers}) => {
     let data = {
       name: name.trim(),
       email: email.trim(),
-      password: password.trim()
+      password: password.trim(),
+      role: role
     }
 
     if (data.title !== '' && data.email !== '') {
@@ -21,6 +24,7 @@ const UserForm = ({getUsers}) => {
         setName('');
         setEmail('');
         setPassword('');
+        setRole('1');
         getUsers();
       })
       .catch(error => console.log(error.res))
@@ -44,6 +48,23 @@ const UserForm = ({getUsers}) => {
           <div className="form-group mb-3">
             <input type="password" className="form-control" placeholder="Enter Password" name="password" value={password} onChange={e => setPassword(e.target.value)}/>       
           </div>
+
+          <div className='form-group  mt-2 mb-3'>          
+            <label className="form-label">Select Role</label>
+            <select className="form-select" 
+              name='role' 
+              value={role} 
+              onChange={e => setRole(e.target.value)}
+            >         
+              <option value={'1'}>reader(auto)</option>
+              {
+                roles.map((item,i) => (
+                  <option key={uuidv4()} value={i}>{item}</option>
+                ))
+              }      
+            </select> 
+          </div>
+
           <div className="d-block">
           <button type="submit" className="btn btn-primary btn-lg btn-block mt-1 w-100">Submit</button> 
           </div>                   

@@ -35,6 +35,7 @@ import UserEditPage from "../pages/admin/users/UserEditPage";
 const App = () => {
   const [categories, setCategories] = useState([]); //refactoring from context or redux
   const [tags, setTags] = useState([]); //refactoring from context or redux
+  const [roles, setRoles] = useState([]);
   
   const getCategories = () => {
     axios.get('/api/categories')
@@ -52,9 +53,18 @@ const App = () => {
     .catch(e => console.log(e.res));
   }
 
+  const getRoles = () => {
+    axios.get('/api/users/roles')
+    .then(res => {      
+      setRoles(res.data);      
+    })
+    .catch(e => console.log(e.res));
+  }
+
   useEffect(() => {
     getCategories();
     getTags();
+    getRoles();
   }, []);
 
   const location = useLocation();
@@ -125,9 +135,9 @@ const App = () => {
                     <Route path="edit/:postId" element={<PostEditPage categories={categories} tags={tags}/>}/>
                   </Route>        
                   <Route path="users">
-                    <Route index element={<UsersAdminPage/>}/>
+                    <Route index element={<UsersAdminPage roles={roles}/>}/>
                     <Route path=":userId" element={<UserDetailsPage/>}/>
-                    <Route path="edit/:userId" element={<UserEditPage/>}/>
+                    <Route path="edit/:userId" element={<UserEditPage roles={roles}/>}/>
                   </Route>             
                 </Route>               
               </Route>              

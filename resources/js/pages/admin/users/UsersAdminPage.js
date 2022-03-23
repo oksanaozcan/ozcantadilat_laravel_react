@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import UsersList from "../../../components/users/UsersList";
 import UserForm from "../../../components/users/UserForm";
 
-const UsersAdminPage = () => {
+const UsersAdminPage = ({roles}) => {
   const [users, setUsers] = useState([]);
 
   const getUsers = () => {
@@ -30,7 +30,7 @@ const UsersAdminPage = () => {
           Info
         </div>
         <div className="col-12 col-md-8">
-          <UserForm getUsers={getUsers}/>
+          <UserForm getUsers={getUsers} roles={roles}/>
         </div>        
       </div>
       <div className="row">

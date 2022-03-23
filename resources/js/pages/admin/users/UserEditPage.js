@@ -1,11 +1,11 @@
 import UserEditForm from "../../../components/users/UserEditForm";
 
-const UserEditPage = () => {
+const UserEditPage = ({roles}) => {
   return (
     <div className="container">
       <div className="row align-items-center page">
         <div className="col">
-          <UserEditForm/>
+          <UserEditForm roles={roles}/>
         </div>        
       </div>
     </div>
