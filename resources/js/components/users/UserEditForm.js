@@ -25,7 +25,8 @@ const UserEditForm = () => {
     e.preventDefault();
     let data = {
       name: name.trim(),
-      email: email.trim()
+      email: email.trim(),
+      user_id: userId
     }
     if (data.name !== '' && data.email !== '') {
       axios.patch(`/api/users/${userId}`, data)
@@ -48,6 +49,9 @@ const UserEditForm = () => {
           </div>
           <div className="form-group mb-3">
             <input type="email" className="form-control" placeholder="Enter Email" name="email" value={email} onChange={e => setEmail(e.target.value)}/>       
+          </div>
+          <div className="form-group mb-3">
+            <input type="hidden" className="form-control" name="user_id" value={userId}/>       
           </div>
           <div className="d-block">
           <button type="submit" className="btn btn-primary btn-lg btn-block mt-1 w-100">Submit</button> 
