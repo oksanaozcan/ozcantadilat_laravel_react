@@ -81,3 +81,4 @@ TASCS:
 10. post editor dont save color of font (may be bootstrap main).
 11. to thinck functional for storage (delete or not after update picture).
 12. show error text whene create or update user email is not unique for users table
+13. refactor code storecontroller admin/user: do check for exists user withTrashed and force delete into StoreRequest but not into StoreController.
