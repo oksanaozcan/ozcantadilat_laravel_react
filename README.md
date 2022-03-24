@@ -82,3 +82,4 @@ TASCS:
 11. to thinck functional for storage (delete or not after update picture).
 12. show error text whene create or update user email is not unique for users table
 13. refactor code storecontroller admin/user: do check for exists user withTrashed and force delete into StoreRequest but not into StoreController.
+14. Mail with password for user: real smtp provider for prod and design for html mail form
