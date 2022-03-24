@@ -43,3 +43,7 @@ Route::prefix('users')->group(function () {
   Route::patch('/{user}', App\Http\Controllers\Admin\User\UpdateController::class);
   Route::delete('/{user}', App\Http\Controllers\Admin\User\DeleteController::class);
 });
+
+Route::prefix('admin')->group(function () {
+  Route::get('/', App\Http\Controllers\Admin\MainController::class);
+});
