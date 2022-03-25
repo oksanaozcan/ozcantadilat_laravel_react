@@ -8,7 +8,7 @@ import NoMatchPage from "../pages/NoMatchPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import { useState, useEffect } from "react";
-import ProfilePage from "../pages/ProfilePage";
+import ProfilePage from "../pages/profile/ProfilePage";
 import GalleryPage from "../pages/GalleryPage";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Navbar from "./Navbar";
@@ -31,6 +31,7 @@ import PostCreatePage from "../pages/admin/posts/PostCreatePage";
 import UsersAdminPage from "../pages/admin/users/UsersAdminPage";
 import UserDetailsPage from "../pages/admin/users/UserDetailsPage";
 import UserEditPage from "../pages/admin/users/UserEditPage";
+import LikedPostsPage from "../pages/profile/LikedPostsPage";
 
 const App = () => {
   const [categories, setCategories] = useState([]); //refactoring from context or redux
@@ -111,7 +112,10 @@ const App = () => {
               <Route path="register" element={<RegisterPage setIsAuth={setIsAuth} />} />          
               {/* <Route path="forgotpassword" element={<ForgorPasswordPage />} />           */}
               <Route element={<ProtectedRoutes/>}>
-                <Route path="profile" element={<ProfilePage/>}/>
+                <Route path="profile">
+                  <Route index element={<ProfilePage/>} />
+                  <Route path="likedposts" element={<LikedPostsPage/>} />                  
+                </Route>
               </Route>
               <Route element={<AdminProtectedRoutes isAdmin={isAdmin}/>}>               
                 <Route path='admin' element={<AdminLayout/>}>

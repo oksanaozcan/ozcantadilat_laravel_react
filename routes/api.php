@@ -47,3 +47,8 @@ Route::prefix('users')->group(function () {
 Route::prefix('admin')->group(function () {
   Route::get('/', App\Http\Controllers\Admin\MainController::class);
 });
+
+Route::prefix('profile')->group(function () {
+  Route::get('/', App\Http\Controllers\Profile\IndexController::class);
+  Route::get('/likedposts', App\Http\Controllers\Profile\Liked\IndexController::class);
+});
