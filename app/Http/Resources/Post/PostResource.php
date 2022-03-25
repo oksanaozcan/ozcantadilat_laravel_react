@@ -6,6 +6,7 @@ use App\Http\Resources\Admin\Picture\PictureResource;
 use App\Http\Resources\Admin\Tag\TagResource;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 
 class PostResource extends JsonResource
 {
@@ -20,7 +21,7 @@ class PostResource extends JsonResource
         return [
           'id' => $this->id,
           'title' => $this->title,
-          'content' => $this->content,
+          'content' => Str::limit($this->content, 60),
           'images' => PictureResource::collection($this->pictures),
           'category_id' => $this->category_id,
           'tags' => TagResource::collection($this->tags),
