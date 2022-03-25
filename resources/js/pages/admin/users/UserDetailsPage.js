@@ -8,7 +8,7 @@ const UserDetailsPage = () => {
   let navigate = useNavigate();
 
   const show = () => {
-    axios.get(`/api/users/${userId}`)
+    axios.get(`/api/admin/users/${userId}`)
     .then(res => {
       setUser(res.data.data);
     })
@@ -20,7 +20,7 @@ const UserDetailsPage = () => {
   }, []);
 
   const deleteUser = () => {
-    axios.delete(`/api/users/${user.id}`)    
+    axios.delete(`/api/admin/users/${user.id}`)    
     navigate('/admin/users');   
   }
 

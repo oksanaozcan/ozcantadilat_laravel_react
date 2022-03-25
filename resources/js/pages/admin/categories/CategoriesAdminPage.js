@@ -1,13 +1,13 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import CategoriesList from "../../../components/categories/CategoriesList";
-import CategoryForm from "../../../components/categories/CategoryForm";
+import CategoriesList from "../../../components/admin/categories/CategoriesList";
+import CategoryForm from "../../../components/admin/categories/CategoryForm";
 
 const CategoriesAdminPage = () => {
   const [categories, setCategories] = useState([]);
 
   const getCategories = () => {
-    axios.get('/api/categories')
+    axios.get('/api/admin/categories')
     .then(res => {
       setCategories(res.data.data);
     })
@@ -18,7 +18,7 @@ const CategoriesAdminPage = () => {
   }, []);
 
   const deleteCategory = (id) => {
-    axios.delete(`/api/categories/${id}`)
+    axios.delete(`/api/admin/categories/${id}`)
     .then(res => {})
     .catch(error => console.log(error.res))
   }

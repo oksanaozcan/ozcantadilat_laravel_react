@@ -8,7 +8,7 @@ const CategoryDetailsPage = () => {
   let navigate = useNavigate();
 
   const show = () => {
-    axios.get(`/api/categories/${categoryId}`)
+    axios.get(`/api/admin/categories/${categoryId}`)
     .then(res => {
       setCategory(res.data.data);
     })
@@ -20,7 +20,7 @@ const CategoryDetailsPage = () => {
   }, []);
 
   const deleteCategory = () => {
-    axios.delete(`/api/categories/${category.id}`)    
+    axios.delete(`/api/admin/categories/${category.id}`)    
     navigate('/admin/categories');   
   }
 

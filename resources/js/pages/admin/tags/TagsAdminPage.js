@@ -1,13 +1,13 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import TagsList from "../../../components/tags/TagsList";
-import TagForm from "../../../components/tags/TagForm";
+import TagsList from "../../../components/admin/tags/TagsList";
+import TagForm from "../../../components/admin/tags/TagForm";
 
 const TagsAdminPage = () => {
   const [tags, setTags] = useState([]);
 
   const getTags = () => {
-    axios.get('/api/tags')
+    axios.get('/api/admin/tags')
     .then(res => {
       setTags(res.data.data);
     })
@@ -18,7 +18,7 @@ const TagsAdminPage = () => {
   }, []);
 
   const deleteTag = (id) => {
-    axios.delete(`/api/tags/${id}`)
+    axios.delete(`/api/admin/tags/${id}`)
     .then(res => {})
     .catch(error => console.log(error.res))
   }

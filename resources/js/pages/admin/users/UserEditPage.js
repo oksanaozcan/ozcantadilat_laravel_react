@@ -1,4 +1,4 @@
-import UserEditForm from "../../../components/users/UserEditForm";
+import UserEditForm from "../../../components/admin/users/UserEditForm";
 
 const UserEditPage = ({roles}) => {
   return (

@@ -39,7 +39,7 @@ const App = () => {
   const [roles, setRoles] = useState([]);
   
   const getCategories = () => {
-    axios.get('/api/categories')
+    axios.get('/api/admin/categories')
     .then(res => {
       setCategories(res.data.data);      
     })
@@ -47,7 +47,7 @@ const App = () => {
   } 
 
   const getTags = () => {
-    axios.get('/api/tags')
+    axios.get('/api/admin/tags')
     .then(res => {
       setTags(res.data.data);      
     })
@@ -55,7 +55,7 @@ const App = () => {
   }
 
   const getRoles = () => {
-    axios.get('/api/users/roles')
+    axios.get('/api/admin/users/roles')
     .then(res => {      
       setRoles(res.data);      
     })

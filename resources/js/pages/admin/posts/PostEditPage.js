@@ -1,4 +1,4 @@
-import PostEditForm from "../../../components/posts/PostEditForm";
+import PostEditForm from "../../../components/admin/posts/PostEditForm";
 
 const PostEditPage = ({categories, tags}) => {
   return (

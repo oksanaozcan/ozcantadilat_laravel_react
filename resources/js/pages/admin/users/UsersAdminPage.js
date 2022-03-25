@@ -1,13 +1,13 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import UsersList from "../../../components/users/UsersList";
-import UserForm from "../../../components/users/UserForm";
+import UsersList from "../../../components/admin/users/UsersList";
+import UserForm from "../../../components/admin/users/UserForm";
 
 const UsersAdminPage = ({roles}) => {
   const [users, setUsers] = useState([]);
 
   const getUsers = () => {
-    axios.get('/api/users')
+    axios.get('/api/admin/users')
     .then(res => {
       setUsers(res.data.data);
     })
@@ -18,7 +18,7 @@ const UsersAdminPage = ({roles}) => {
   }, []);
 
   const deleteUser = (id) => {
-    axios.delete(`/api/users/${id}`)
+    axios.delete(`/api/admin/users/${id}`)
     .then(res => {})
     .catch(error => console.log(error.res))
   }

@@ -84,3 +84,4 @@ TASCS:
 13. refactor code storecontroller admin/user: do check for exists user withTrashed and force delete into StoreRequest but not into StoreController.
 14. Mail with password for user: real smtp provider for prod and design for html mail form
 15. make job for hard tasks (lesson 31 edica "create class Job")
+16. delete like func with singl post page add.

@@ -1,4 +1,4 @@
-import TagEditForm from "../../../components/tags/TagEditForm";
+import TagEditForm from "../../../components/admin/tags/TagEditForm";
 
 const TagEditPage = () => {
   return (

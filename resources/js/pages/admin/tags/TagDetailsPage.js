@@ -8,7 +8,7 @@ const TagDetailsPage = () => {
   let navigate = useNavigate();
 
   const show = () => {
-    axios.get(`/api/tags/${tagId}`)
+    axios.get(`/api/admin/tags/${tagId}`)
     .then(res => {
       setTag(res.data.data);
     })
@@ -16,7 +16,7 @@ const TagDetailsPage = () => {
   }
 
   const deleteTag = () => {
-    axios.delete(`/api/tags/${tag.id}`)    
+    axios.delete(`/api/admin/tags/${tag.id}`)    
     navigate('/admin/tags');   
   }
 

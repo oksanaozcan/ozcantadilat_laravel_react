@@ -2,13 +2,13 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import { Plus } from 'react-bootstrap-icons';
-import PostsList from "../../../components/posts/PostsList";
+import PostsList from "../../../components/admin/posts/PostsList";
 
 const PostsAdminPage = () => {
   const [posts, setPosts] = useState([]);
 
   const getPosts = () => {
-    axios.get('/api/posts')
+    axios.get('/api/admin/posts')
     .then(res => {
       setPosts(res.data.data);
     })
@@ -19,7 +19,7 @@ const PostsAdminPage = () => {
   }, []);
 
   const deletePost = (id) => {
-    axios.delete(`/api/posts/${id}`)
+    axios.delete(`/api/admin/posts/${id}`)
     .then(res => {})
     .catch(error => console.log(error.res))
   }

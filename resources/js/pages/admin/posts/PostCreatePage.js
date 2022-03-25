@@ -1,4 +1,4 @@
-import PostForm from "../../../components/posts/PostForm"
+import PostForm from "../../../components/admin/posts/PostForm"
 
 const PostCreatePage = ({categories, tags}) => {
   return (

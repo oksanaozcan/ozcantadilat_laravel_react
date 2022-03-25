@@ -10,7 +10,7 @@ const PostDetailsPage = () => {
   let navigate = useNavigate();
 
   const show = () => {
-    axios.get(`/api/posts/${postId}`)
+    axios.get(`/api/admin/posts/${postId}`)
     .then(res => {
       setPost(res.data.data);
       setImages(res.data.data.images);
@@ -24,7 +24,7 @@ const PostDetailsPage = () => {
   }, []);
 
   const deletePost = () => {
-    axios.delete(`/api/posts/${post.id}`)    
+    axios.delete(`/api/admin/posts/${post.id}`)    
     navigate('/admin/posts');   
   }
 
