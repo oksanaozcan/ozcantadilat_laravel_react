@@ -23,7 +23,7 @@ import CategoryEditPage from "../pages/admin/categories/CategoryEditPage";
 import TagsAdminPage from "../pages/admin/tags/TagsAdminPage";
 import TagDetailsPage from "../pages/admin/tags/TagDetailsPage";
 import TagEditPage from "../pages/admin/tags/TagEditPage";
-import PostsPage from "../pages/PostsPage";
+import PostsPage from "../pages/posts/PostsPage";
 import PostsAdminPage from "../pages/admin/posts/PostsAdminPage";
 import PostEditPage from "../pages/admin/posts/PostEditPage";
 import PostDetailsPage from "../pages/admin/posts/PostDetailsPage";
@@ -32,6 +32,7 @@ import UsersAdminPage from "../pages/admin/users/UsersAdminPage";
 import UserDetailsPage from "../pages/admin/users/UserDetailsPage";
 import UserEditPage from "../pages/admin/users/UserEditPage";
 import LikedPostsPage from "../pages/profile/LikedPostsPage";
+import SinglePostPage from "../pages/posts/SinglePostPage";
 
 const App = () => {
   const [categories, setCategories] = useState([]); //refactoring from context or redux
@@ -107,7 +108,10 @@ const App = () => {
               <Route index element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />          
               <Route path="gallery" element={<GalleryPage />} />          
-              <Route path="posts" element={<PostsPage />} />          
+              <Route path="posts">
+                <Route index element={<PostsPage />} />  
+                <Route path=":postId" element={<SinglePostPage />} />                            
+              </Route>          
               <Route path="login" element={<LoginPage setIsAuth={setIsAuth} checkUserRole={checkUserRole}/>} />          
               <Route path="register" element={<RegisterPage setIsAuth={setIsAuth} />} />          
               {/* <Route path="forgotpassword" element={<ForgorPasswordPage />} />           */}
