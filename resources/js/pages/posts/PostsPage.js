@@ -3,12 +3,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const PostsPage = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
 
   const getPosts = () => {
     axios.get('/api/posts')
     .then(res => {
       setPosts(res.data.data);
+      setLastPage(res.data.meta.last_page);
     })
     .catch(error => console.log(error.res))
   }
@@ -47,6 +50,27 @@ const PostsPage = () => {
             </div>               
           ))
         }                 
+      </div>
+      <div className="row mt-2">
+        <nav aria-label="...">
+          <ul className="pagination justify-content-center">
+            <li className="page-item disabled">
+              <span className="page-link">Previous</span>
+            </li>
+            {
+              new Array(lastPage).fill(1).map((_,i) => i+1).map(page => (
+                <li key={page} 
+                  className={`page-item ${currentPage == page ? 'active' : null}`}
+                >
+                  <Link className="page-link" to={`/posts?page=${page}`}>{page}</Link>
+                </li>  
+              ))              
+            }                     
+            <li className="page-item">
+              <a className="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   )
