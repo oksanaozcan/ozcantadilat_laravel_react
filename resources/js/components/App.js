@@ -33,6 +33,7 @@ import UserDetailsPage from "../pages/admin/users/UserDetailsPage";
 import UserEditPage from "../pages/admin/users/UserEditPage";
 import LikedPostsPage from "../pages/profile/LikedPostsPage";
 import SinglePostPage from "../pages/posts/SinglePostPage";
+import CommentsPage from "../pages/profile/CommentsPage";
 
 const App = () => {
   const [categories, setCategories] = useState([]); //refactoring from context or redux
@@ -119,6 +120,7 @@ const App = () => {
                 <Route path="profile">
                   <Route index element={<ProfilePage/>} />
                   <Route path="likedposts" element={<LikedPostsPage/>} />                  
+                  <Route path="comments" element={<CommentsPage/>} />                  
                 </Route>
               </Route>
               <Route element={<AdminProtectedRoutes isAdmin={isAdmin}/>}>               

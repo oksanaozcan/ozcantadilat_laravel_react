@@ -86,3 +86,8 @@ TASCS:
 15. make job for hard tasks (lesson 31 edica "create class Job")
 16. delete like func with singl post page add.
 17. post editing after previe img and img detach if dont change old img!!!!!
+18. ud for comments for profile user.
+19. $randomPosts = Post::get()->random(4); = lenta for main page
+    Post::paginate(6)
+    most liked posts: Post::withCount('likedPost')->orderBy('liked_post_count', 'DESC')->get()->take(4);
+20. Paginate react laravel ???

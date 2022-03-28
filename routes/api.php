@@ -51,6 +51,7 @@ Route::prefix('admin')->group(function () {
 Route::prefix('profile')->group(function () {
   Route::get('/', App\Http\Controllers\Profile\IndexController::class);
   Route::get('/likedposts', App\Http\Controllers\Profile\Liked\IndexController::class);
+  Route::get('/comments', App\Http\Controllers\Profile\Comment\IndexController::class);
 });
 
 Route::prefix('posts')->group(function () {
