@@ -31,7 +31,7 @@ class SinglePostResource extends JsonResource
           'comments' => CommentResource::collection($this->comments),
           'related_posts' => PostResource::collection($this->relatedPosts),
           'likes' => $this->likes,
-          'current_user' => auth()->user()->id
+          'current_user' => optional(auth()->user())->id
         ];
     }
 }

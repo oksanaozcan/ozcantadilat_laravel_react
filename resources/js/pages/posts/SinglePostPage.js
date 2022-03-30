@@ -41,6 +41,23 @@ const SinglePostPage = () => {
     getPost();
   }, []);
 
+  const LikeButton = ({toggleLike, likes, currentUser}) => {
+    return (      
+      <button type="submit" className="btn btn-link" onClick={toggleLike}>          
+        {
+          likes.find(like => like.user_id == currentUser) ?
+            <HeartFill color="red" size={20} /> :
+            <Heart size={20} />    
+        }     
+        <ReactTooltip/>{likes.length}     
+      </button>         
+    )
+  }
+
+  const checkAuthUser = post.current_user == null ?
+    <><Heart size={20} />{likes.length}</> :    
+    <LikeButton toggleLike={toggleLike} likes={likes} currentUser={currentUser}/>
+
   return(
     <div className="container">
       <h1 className="text-center">{post.title}</h1>
@@ -50,9 +67,15 @@ const SinglePostPage = () => {
       <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
 
       <div className="dropdown-divider"></div>
-      <div className="row justify-content-around">        
+      <div className="row justify-content-around">   
         <div className="col col-auto" data-tip="like">
-          <button type="submit" className="btn btn-link" onClick={toggleLike}>
+          {
+            checkAuthUser
+          }  
+        </div>   
+      
+        {/* <div className="col col-auto" data-tip="like">
+          <button type="submit" className="btn btn-link" onClick={toggleLike}>          
             {
               likes.find(like => like.user_id == currentUser) ?
                 <HeartFill color="red" size={20} /> :
@@ -60,7 +83,7 @@ const SinglePostPage = () => {
             }     
             <ReactTooltip/>{likes.length}     
             </button>
-        </div>        
+        </div>         */}
         <div className="col col-auto"><Chat size={20} data-tip="add comment"/><ReactTooltip /> {comments.length}</div>
         <div className="col col-auto"><Share size={20} data-tip="share"/><ReactTooltip /></div>
       </div>      

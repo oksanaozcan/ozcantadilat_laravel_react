@@ -29,7 +29,7 @@ class PostResource extends JsonResource
           'created_at' => Carbon::parse($this->created_at)->format('M d Y'),
           'likes' => $this->likes,
           'comments' => $this->comments->count(),
-          'current_user' => auth()->user()->id
+          'current_user' => optional(auth()->user())->id,          
         ];
     }
 }
