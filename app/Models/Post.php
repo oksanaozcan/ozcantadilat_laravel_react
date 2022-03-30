@@ -34,4 +34,9 @@ class Post extends Model
     {
       return $this->hasMany(Post::class, 'category_id', 'category_id')->where('id', '!=', $this->id)->limit(3);      
     }
+
+    public function likes() 
+    {
+      return $this->hasMany(PostUserLike::class, 'post_id', 'id')->select(['user_id']);
+    }
 }

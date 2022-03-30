@@ -7,6 +7,7 @@ use App\Http\Resources\Admin\Tag\TagResource;
 use App\Http\Resources\Profile\Comment\CommentResource;
 use Carbon\Carbon;
 use App\Models\Category;
+use App\Models\PostUserLike;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class SinglePostResource extends JsonResource
@@ -28,7 +29,8 @@ class SinglePostResource extends JsonResource
           'tags' => TagResource::collection($this->tags),
           'created_at' => Carbon::parse($this->created_at)->format('M d Y'),
           'comments' => CommentResource::collection($this->comments),
-          'related_posts' => PostResource::collection($this->relatedPosts)
+          'related_posts' => PostResource::collection($this->relatedPosts),
+          'likes' => $this->likes
         ];
     }
 }

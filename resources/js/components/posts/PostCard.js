@@ -24,8 +24,8 @@ const PostCard = ({item}) => {
             </div>   
             <div className="dropdown-divider"></div>
             <div className="d-flex justify-content-between">
-              <div><Heart/> 15</div>
-              <div><Chat/> 8</div>
+              <div><Heart/> {item.likes}</div>
+              <div><Chat/> {item.comments}</div>
             </div>                                             
           </div>      
         </div>      

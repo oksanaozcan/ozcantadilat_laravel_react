@@ -112,3 +112,4 @@ TASCS:
 
 24. Laravel translate (tr en ru ua ), provider or google API.
 25. functional for favorite posts, images into profile page.
+26. how to do share?

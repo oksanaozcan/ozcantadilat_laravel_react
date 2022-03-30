@@ -11,6 +11,7 @@ const SinglePostPage = () => {
   const [images, setImages] = useState({});
   const [comments, setComments] = useState([]);
   const [relatedPosts, setRelatedPosts] = useState([]);
+  const [likes, setLikes] = useState([]);
 
   const getPost = () => {
     axios.get(`/api/posts/${postId}`)
@@ -19,6 +20,7 @@ const SinglePostPage = () => {
       setImages(res.data.data.images[0])
       setComments(res.data.data.comments)
       setRelatedPosts(res.data.data.related_posts)
+      setLikes(res.data.data.likes)
     })
     .catch(err => console.log(err.message))
   }
@@ -37,8 +39,8 @@ const SinglePostPage = () => {
 
       <div className="dropdown-divider"></div>
       <div className="row justify-content-around">
-        <div className="col col-auto"><Heart size={20} data-tip="like"/><ReactTooltip /></div>
-        <div className="col col-auto"><Chat size={20} data-tip="add comment"/><ReactTooltip /></div>
+        <div className="col col-auto"><Heart size={20} data-tip="like"/><ReactTooltip /> {likes.length}</div>
+        <div className="col col-auto"><Chat size={20} data-tip="add comment"/><ReactTooltip /> {comments.length}</div>
         <div className="col col-auto"><Share size={20} data-tip="share"/><ReactTooltip /></div>
       </div>      
       <div className="dropdown-divider"></div>
