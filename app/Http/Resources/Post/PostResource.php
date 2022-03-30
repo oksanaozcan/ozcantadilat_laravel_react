@@ -26,7 +26,7 @@ class PostResource extends JsonResource
           'images' => PictureResource::collection($this->pictures),
           'category_id' => Category::find($this->category_id)->title,
           'tags' => TagResource::collection($this->tags),
-          'created_at' => Carbon::parse($this->created_at)->format('M d Y') 
+          'created_at' => Carbon::parse($this->created_at)->format('M d Y')          
         ];
     }
 }

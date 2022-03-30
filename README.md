@@ -90,4 +90,5 @@ TASCS:
 19. $randomPosts = Post::get()->random(4); = lenta for main page
     Post::paginate(6)
     most liked posts: Post::withCount('likedPost')->orderBy('liked_post_count', 'DESC')->get()->take(4);
-20. css animation & styles for PostsPage
+20. css animation & styles for PostsPage, change paginate(3) into controller to 6
+21. React comments with replies (settings of data from back?), approved comments.

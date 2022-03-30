@@ -4,6 +4,7 @@ namespace App\Http\Resources\Post;
 
 use App\Http\Resources\Admin\Picture\PictureResource;
 use App\Http\Resources\Admin\Tag\TagResource;
+use App\Http\Resources\Profile\Comment\CommentResource;
 use Carbon\Carbon;
 use App\Models\Category;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -25,7 +26,9 @@ class SinglePostResource extends JsonResource
           'images' => PictureResource::collection($this->pictures),
           'category_id' => Category::find($this->category_id),
           'tags' => TagResource::collection($this->tags),
-          'created_at' => Carbon::parse($this->created_at)->format('M d Y') 
+          'created_at' => Carbon::parse($this->created_at)->format('M d Y'),
+          'comments' => CommentResource::collection($this->comments),
+          'related_posts' => PostResource::collection($this->relatedPosts)
         ];
     }
 }
