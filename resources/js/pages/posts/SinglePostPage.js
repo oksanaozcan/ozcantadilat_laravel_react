@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Chat, Heart, Share } from "react-bootstrap-icons";
+import { useParams } from "react-router-dom";
 import PostCard from "../../components/posts/PostCard";
+import ReactTooltip from 'react-tooltip';
 
 const SinglePostPage = () => {
   const {postId} = useParams();
@@ -30,7 +32,15 @@ const SinglePostPage = () => {
       <h1 className="text-center">{post.title}</h1>
       <h4 className="text-center">Created At {post.created_at} | {comments.length ? comments.length : 'not'} comments</h4>
       <img src={images.url} alt={post.title} className="w-100" style={{ height: '30rem', objectFit: 'cover', alignSelf: 'center' }}/>
+      <div className="dropdown-divider"></div>
       <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+
+      <div className="dropdown-divider"></div>
+      <div className="row justify-content-around">
+        <div className="col col-auto"><Heart size={20} data-tip="like"/><ReactTooltip /></div>
+        <div className="col col-auto"><Chat size={20} data-tip="add comment"/><ReactTooltip /></div>
+        <div className="col col-auto"><Share size={20} data-tip="share"/><ReactTooltip /></div>
+      </div>      
       <div className="dropdown-divider"></div>
     
       <h4>Comments:</h4>

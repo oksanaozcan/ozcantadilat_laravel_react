@@ -1,3 +1,4 @@
+import { Chat, Heart } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
 const PostCard = ({item}) => {
@@ -20,7 +21,12 @@ const PostCard = ({item}) => {
                   </div>                                                  
                 ))
               }
-            </div>                                                
+            </div>   
+            <div className="dropdown-divider"></div>
+            <div className="d-flex justify-content-between">
+              <div><Heart/> 15</div>
+              <div><Chat/> 8</div>
+            </div>                                             
           </div>      
         </div>      
       </Link>                       
