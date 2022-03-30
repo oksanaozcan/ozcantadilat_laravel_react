@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link } from "react-router-dom";
+import PostCard from "../../components/posts/PostCard";
 
 const SinglePostPage = () => {
   const {postId} = useParams();
@@ -41,29 +42,7 @@ const SinglePostPage = () => {
 
       {
         relatedPosts.map(item => (            
-          <div key={item.id} className="col-sm-12 col-md-6 col-lg-4 mt-2">
-            <Link to={`/posts/${item.id}`}>              
-              <div className="card">
-                <img style={{ width: '100%', height: '250px', objectFit: 'cover' }} className="card-img-top" src={item.images[0].url} alt={item.title}/>
-                <div className="card-body">
-                  <div className="d-flex justify-content-end">  
-                    <small className="bg-secondary text-white p-1 rounded">{item.category_id}</small>                                                                                 
-                  </div>                   
-                  <h5 className="card-title">{item.title}</h5>                       
-                  <p className="card-text">{item.content}</p>       
-                  <div className="d-flex">
-                    {
-                      item.tags.map(tag => (  
-                        <div key={tag.id} className='m-1'>
-                          <small className="bg-info text-white p-1 rounded"># {tag.title}</small> 
-                        </div>                                                  
-                      ))
-                    }
-                  </div>                                                
-                </div>      
-              </div>      
-            </Link>                       
-          </div>               
+          <PostCard key={item.id} item={item} /> 
         ))
         }   
 

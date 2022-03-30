@@ -91,4 +91,24 @@ TASCS:
     Post::paginate(6)
     most liked posts: Post::withCount('likedPost')->orderBy('liked_post_count', 'DESC')->get()->take(4);
 20. css animation & styles for PostsPage, change paginate(3) into controller to 6
-21. React comments with replies (settings of data from back?), approved comments.
+21. React comments with replies (settings of data from back?), approved comments, nested routing (example: /posts/:postId/comments...).
+    Comment/StoreController:
+    __invoke(Post $post, StoreRequest $request)
+    {
+      $data = $request->validated();
+      $data['user_id'] = auth()->user()->id;
+      $data['post_id'] = $post->id;
+
+      Comment::create($data);
+    }
+    
+22. Laravel 9 recaptcha look article into bookmarks.
+23. public function getDateAsCarbonAttribute()
+    {
+      return Carbon::parse($this->created_at);
+    }
+
+    $comment->dateAsCarbon->diffForHumans(); (8 minutes ago)
+
+24. Laravel translate (tr en ru ua ), provider or google API.
+25. functional for favorite posts, images into profile page.
