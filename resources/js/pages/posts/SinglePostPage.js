@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Chat, Heart, Share } from "react-bootstrap-icons";
+import { Chat, Heart, HeartFill, Share } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import PostCard from "../../components/posts/PostCard";
 import ReactTooltip from 'react-tooltip';
@@ -12,6 +12,7 @@ const SinglePostPage = () => {
   const [comments, setComments] = useState([]);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [likes, setLikes] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const getPost = () => {
     axios.get(`/api/posts/${postId}`)
@@ -21,8 +22,19 @@ const SinglePostPage = () => {
       setComments(res.data.data.comments)
       setRelatedPosts(res.data.data.related_posts)
       setLikes(res.data.data.likes)
+      setCurrentUser(res.data.data.current_user)
     })
     .catch(err => console.log(err.message))
+  }
+
+  const toggleLike = (e) => {
+    e.preventDefault();
+
+    axios.post(`/api/posts/${post.id}/like`)
+    .then(res => {
+      getPost()    
+    })
+    .catch(error => console.log(error.res))
   }
 
   useEffect(() => {
@@ -38,8 +50,17 @@ const SinglePostPage = () => {
       <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
 
       <div className="dropdown-divider"></div>
-      <div className="row justify-content-around">
-        <div className="col col-auto"><Heart size={20} data-tip="like"/><ReactTooltip /> {likes.length}</div>
+      <div className="row justify-content-around">        
+        <div className="col col-auto" data-tip="like">
+          <button type="submit" className="btn btn-link" onClick={toggleLike}>
+            {
+              likes.find(like => like.user_id == currentUser) ?
+                <HeartFill color="red" size={20} /> :
+                <Heart size={20} />    
+            }     
+            <ReactTooltip/>{likes.length}     
+            </button>
+        </div>        
         <div className="col col-auto"><Chat size={20} data-tip="add comment"/><ReactTooltip /> {comments.length}</div>
         <div className="col col-auto"><Share size={20} data-tip="share"/><ReactTooltip /></div>
       </div>      

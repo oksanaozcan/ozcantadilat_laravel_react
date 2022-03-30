@@ -30,7 +30,8 @@ class SinglePostResource extends JsonResource
           'created_at' => Carbon::parse($this->created_at)->format('M d Y'),
           'comments' => CommentResource::collection($this->comments),
           'related_posts' => PostResource::collection($this->relatedPosts),
-          'likes' => $this->likes
+          'likes' => $this->likes,
+          'current_user' => auth()->user()->id
         ];
     }
 }

@@ -27,8 +27,9 @@ class PostResource extends JsonResource
           'category_id' => Category::find($this->category_id)->title,
           'tags' => TagResource::collection($this->tags),
           'created_at' => Carbon::parse($this->created_at)->format('M d Y'),
-          'likes' => $this->likes->count(),
-          'comments' => $this->comments->count(),      
+          'likes' => $this->likes,
+          'comments' => $this->comments->count(),
+          'current_user' => auth()->user()->id
         ];
     }
 }

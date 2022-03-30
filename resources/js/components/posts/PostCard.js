@@ -1,4 +1,4 @@
-import { Chat, Heart } from "react-bootstrap-icons";
+import { Chat, Heart, HeartFill } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
 const PostCard = ({item}) => {
@@ -24,7 +24,14 @@ const PostCard = ({item}) => {
             </div>   
             <div className="dropdown-divider"></div>
             <div className="d-flex justify-content-between">
-              <div><Heart/> {item.likes}</div>
+              <div>
+                {
+                  item.likes.find(like => like.user_id == item.current_user) ?
+                  <HeartFill color="red"/> :
+                  <Heart/> 
+                }              
+                {item.likes.length}
+              </div>
               <div><Chat/> {item.comments}</div>
             </div>                                             
           </div>      

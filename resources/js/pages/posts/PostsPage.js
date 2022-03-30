@@ -8,11 +8,11 @@ const PostsPage = () => {
   const [activePage, setActivePage] = useState(null);
   const [itemsCountPerPage, setItemsCountPerPage] = useState(null);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
-
+  
   const handlePageChange = (pageNumber=1) => {
     axios.get(`/api/posts?page=${pageNumber}`)
       .then(res => {
-        setPosts(res.data.data);
+        setPosts(res.data.data);        
         setActivePage(res.data.meta.current_page);
         setItemsCountPerPage(res.data.meta.per_page);
         setTotalItemsCount(res.data.meta.total);
@@ -31,7 +31,7 @@ const PostsPage = () => {
       <div className="row">       
         {
           posts.map(item => (            
-            <PostCard key={item.id} item={item}/>    
+            <PostCard key={item.id} item={item} />    
           ))
         }                 
       </div>
