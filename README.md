@@ -73,7 +73,7 @@ TASCS:
 2. transition animation between element of app (btns, modals, blocks, other).
 3. admin panel transition animation edit. 
 4. Error boundary
-5. Redux with tools
+5. Redux with tools, loading
 6. gallery page
 7. /user or /profile ... /profile/${userId} ... /settings/${userId}
 8. work panel for contracts and other...
