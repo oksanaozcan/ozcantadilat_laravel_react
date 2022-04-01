@@ -8,9 +8,30 @@ const PostsPage = () => {
   const [activePage, setActivePage] = useState(null);
   const [itemsCountPerPage, setItemsCountPerPage] = useState(null);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
+  const [searchText, setSearchText] = useState('');
   
-  const handlePageChange = (pageNumber=1) => {
-    axios.get(`/api/posts?page=${pageNumber}`)
+  // const handlePageChange = (pageNumber=1) => {
+  //   axios.get(`/api/posts?page=${pageNumber}`)
+  //     .then(res => {
+  //       setPosts(res.data.data);        
+  //       setActivePage(res.data.meta.current_page);
+  //       setItemsCountPerPage(res.data.meta.per_page);
+  //       setTotalItemsCount(res.data.meta.total);
+  //     })
+  //     .catch(({ message }) => {
+  //       console.error(message);
+  //     });
+  // }
+
+  const filterPosts = (e) => {
+    e.preventDefault();
+
+    let data = {
+      title: searchText.trim()
+    }
+    
+    if (data.title !== '') {
+      axios.post(`/api/posts?page=1`, data)
       .then(res => {
         setPosts(res.data.data);        
         setActivePage(res.data.meta.current_page);
@@ -20,6 +41,20 @@ const PostsPage = () => {
       .catch(({ message }) => {
         console.error(message);
       });
+    }
+  }
+
+  const handlePageChange = (pageNumber=1) => { 
+    axios.post(`/api/posts?page=${pageNumber}`)
+    .then(res => {
+      setPosts(res.data.data);        
+      setActivePage(res.data.meta.current_page);
+      setItemsCountPerPage(res.data.meta.per_page);
+      setTotalItemsCount(res.data.meta.total);
+    })
+    .catch(({ message }) => {
+      console.error(message);
+    });        
   }
 
   useEffect(() => {
@@ -27,7 +62,17 @@ const PostsPage = () => {
   }, [])
   
   return (
-    <div className="container">      
+    <div className="container">    
+      <div className="row">
+        <div className="col">
+          <nav className="navbar navbar-light bg-light">
+            <form className="form-inline w-50 d-flex" onSubmit={filterPosts}>
+              <input className="form-control mr-sm-2" type="search" placeholder="Search" name='title' value={searchText} onChange={(e) => setSearchText(e.target.value)} aria-label="Search"/>
+              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </nav>
+        </div>      
+      </div>  
       <div className="row">       
         {
           posts.map(item => (            
@@ -42,8 +87,8 @@ const PostsPage = () => {
           totalItemsCount={totalItemsCount}          
           onChange={handlePageChange}
           itemClass="page-item"
-          linkClass="page-link"
-        />
+          linkClass="page-link"          
+        />   
       </div>
     </div>
   )
