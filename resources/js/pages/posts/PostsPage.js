@@ -8,44 +8,20 @@ const PostsPage = () => {
   const [activePage, setActivePage] = useState(null);
   const [itemsCountPerPage, setItemsCountPerPage] = useState(null);
   const [totalItemsCount, setTotalItemsCount] = useState(0);
-  const [searchText, setSearchText] = useState('');
-  
-  // const handlePageChange = (pageNumber=1) => {
-  //   axios.get(`/api/posts?page=${pageNumber}`)
-  //     .then(res => {
-  //       setPosts(res.data.data);        
-  //       setActivePage(res.data.meta.current_page);
-  //       setItemsCountPerPage(res.data.meta.per_page);
-  //       setTotalItemsCount(res.data.meta.total);
-  //     })
-  //     .catch(({ message }) => {
-  //       console.error(message);
-  //     });
-  // }
+  const [searchText, setSearchText] = useState(''); 
 
   const filterPosts = (e) => {
     e.preventDefault();
-
     let data = {
       title: searchText.trim()
-    }
-    
+    }    
     if (data.title !== '') {
-      axios.post(`/api/posts?page=1`, data)
-      .then(res => {
-        setPosts(res.data.data);        
-        setActivePage(res.data.meta.current_page);
-        setItemsCountPerPage(res.data.meta.per_page);
-        setTotalItemsCount(res.data.meta.total);
-      })
-      .catch(({ message }) => {
-        console.error(message);
-      });
+      handlePageChange(1, data);
     }
   }
 
-  const handlePageChange = (pageNumber=1) => { 
-    axios.post(`/api/posts?page=${pageNumber}`)
+  const handlePageChange = (pageNumber=activePage, data=null) => { 
+    axios.post(`/api/posts?page=${pageNumber}`, data)
     .then(res => {
       setPosts(res.data.data);        
       setActivePage(res.data.meta.current_page);
@@ -85,7 +61,7 @@ const PostsPage = () => {
           activePage={activePage}
           itemsCountPerPage={itemsCountPerPage}
           totalItemsCount={totalItemsCount}          
-          onChange={handlePageChange}
+          onChange={(activePage) => handlePageChange(activePage)}
           itemClass="page-item"
           linkClass="page-link"          
         />   
