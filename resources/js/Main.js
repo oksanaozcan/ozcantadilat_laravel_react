@@ -4,12 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from './components/App';
 
 const Main = () => {
-  return (
-    // <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    // </React.StrictMode>            
+  return (    
+    <BrowserRouter>    
+      <App />          
+    </BrowserRouter>                
   );
 }
 
