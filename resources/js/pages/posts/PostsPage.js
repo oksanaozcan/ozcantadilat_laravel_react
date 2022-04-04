@@ -2,17 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import PostCard from "../../components/posts/PostCard";
 
-const PostsPage = () => {
-  const [posts, setPosts] = useState([]);
+const PostsPage = ({posts}) => {
+  
 
-  useEffect (()=> {
-    axios.post(`/api/posts`)
-    .then(res => {
-      setPosts(res.data.data)
-    }) 
-
-  }, [])
-
+  
   return (
     <div className="container">    
       <div className="row">
