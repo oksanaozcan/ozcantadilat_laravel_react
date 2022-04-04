@@ -39,16 +39,8 @@ const App = () => {
   const [categories, setCategories] = useState([]); //refactoring from context or redux
   const [tags, setTags] = useState([]); //refactoring from context or redux
   const [roles, setRoles] = useState([]);
-  const [posts, setPosts] = useState([]);
-
-  const getPosts = () => {
-    axios.post(`/api/posts`)
-    .then(res => {
-      setPosts(res.data.data)
-    })
-    .catch(error => console.log(error.res))
-  }
-  
+  const [currentPage, setCurrentPage] = useState(0);
+    
   const getCategories = () => {
     axios.get('/api/admin/categories')
     .then(res => {
@@ -76,8 +68,7 @@ const App = () => {
   useEffect(() => {
     getCategories();
     getTags();
-    getRoles();
-    getPosts();
+    getRoles();   
   }, []);
 
   const location = useLocation();
@@ -120,7 +111,7 @@ const App = () => {
               <Route path="about" element={<AboutPage />} />          
               <Route path="gallery" element={<GalleryPage />} />          
               <Route path="posts">
-                <Route index element={<PostsPage posts={posts} />} />  
+                <Route index element={<PostsPage />} />  
                 <Route path=":postId" element={<SinglePostPage />} />                            
               </Route>          
               <Route path="login" element={<LoginPage setIsAuth={setIsAuth} checkUserRole={checkUserRole}/>} />          
