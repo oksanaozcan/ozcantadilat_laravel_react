@@ -111,7 +111,7 @@ const App = () => {
               <Route path="about" element={<AboutPage />} />          
               <Route path="gallery" element={<GalleryPage />} />          
               <Route path="posts">
-                <Route index element={<PostsPage />} />  
+                <Route index element={<PostsPage categories={categories} />} />  
                 <Route path=":postId" element={<SinglePostPage />} />                            
               </Route>          
               <Route path="login" element={<LoginPage setIsAuth={setIsAuth} checkUserRole={checkUserRole}/>} />          
