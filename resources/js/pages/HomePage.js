@@ -1,6 +1,7 @@
 import ReactPlayer from 'react-player';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { ListTask } from 'react-bootstrap-icons';
+import HomeSlider from '../components/HomeSlider';
 
 const HomePage = () => {
 
@@ -59,7 +60,7 @@ const HomePage = () => {
       </div>
       <div className='row'>      
         <div className="col col-md-6 col-sm-12">   
-          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.3}>
+          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.7}>
             <div className="card mt-1 mb-1">
               <ListTask size={60}/>
               <div className="card-body">
@@ -70,7 +71,7 @@ const HomePage = () => {
           </AnimationOnScroll>                
         </div>  
         <div className="col col-md-6 col-sm-12">   
-          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.3} delay={2}>
+          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.7} delay={2}>
             <div className="card mt-1 mb-1">
               <ListTask size={60}/>
               <div className="card-body">
@@ -81,7 +82,7 @@ const HomePage = () => {
           </AnimationOnScroll>                
         </div>  
         <div className="col col-md-6 col-sm-12">   
-          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.3} delay={3}>
+          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.7} delay={3}>
             <div className="card mt-1 mb-1">
               <ListTask size={60}/>
               <div className="card-body">
@@ -92,7 +93,7 @@ const HomePage = () => {
           </AnimationOnScroll>                
         </div>  
         <div className="col col-md-6 col-sm-12">   
-          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.3} delay={4}>
+          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.7} delay={4}>
             <div className="card mt-1 mb-1">
               <ListTask size={60}/>
               <div className="card-body">
@@ -103,7 +104,7 @@ const HomePage = () => {
           </AnimationOnScroll>                
         </div>  
         <div className="col col-md-6 col-sm-12">   
-          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.3} delay={5}>
+          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.7} delay={5}>
             <div className="card mt-1 mb-1">
               <ListTask size={60}/>
               <div className="card-body">
@@ -114,7 +115,7 @@ const HomePage = () => {
           </AnimationOnScroll>                
         </div>  
         <div className="col col-md-6 col-sm-12">   
-          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.3} delay={6}>
+          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.7} delay={6}>
             <div className="card mt-1 mb-1">
               <ListTask size={60}/>
               <div className="card-body">
@@ -129,9 +130,11 @@ const HomePage = () => {
           <div className="dropdown-divider w-25 m-1"></div>
           <h5 className='w-100' >Our Works</h5>
         </div>   
-
-        <div className='row'>
-          
+        <div className='w-100 mb-3'></div>
+        <div className='row'>          
+          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.7}>
+            <HomeSlider/>
+          </AnimationOnScroll>
         </div>
 
        
