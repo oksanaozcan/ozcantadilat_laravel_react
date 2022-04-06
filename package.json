@@ -37,8 +37,10 @@
         "react-pro-sidebar": "^0.7.1",
         "react-router-dom": "^6.2.2",
         "react-select": "^5.2.2",
+        "react-slick": "^0.28.1",
         "react-tooltip": "^4.2.21",
         "react-transition-group": "^4.4.2",
+        "slick-carousel": "^1.8.1",
         "uuid": "^8.3.2"
     }
 }

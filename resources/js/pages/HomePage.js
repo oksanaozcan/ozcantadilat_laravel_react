@@ -1,5 +1,6 @@
 import ReactPlayer from 'react-player';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { ListTask } from 'react-bootstrap-icons';
 
 const HomePage = () => {
 
@@ -48,6 +49,93 @@ const HomePage = () => {
           <h3>Didim</h3>           
           <h3>Didim</h3>                                           
         </div>     
+      </div>
+      <div className='row'>
+        <div className='d-flex w-75 align-items-center mt-5 mb-2'>
+          <div className="dropdown-divider w-25 m-1"></div>
+          <h5 className='w-100' >Advantage List</h5>          
+          <small>Birçok kişi tüm tadilat şirketlerinin aynı olduğunu ve sadece fiyat farkının olduğunu düşünüyor... Ama bu doğru değil.</small>          
+        </div>       
+      </div>
+      <div className='row'>      
+        <div className="col col-md-6 col-sm-12">   
+          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.3}>
+            <div className="card mt-1 mb-1">
+              <ListTask size={60}/>
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>             
+              </div>                      
+            </div>            
+          </AnimationOnScroll>                
+        </div>  
+        <div className="col col-md-6 col-sm-12">   
+          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.3} delay={2}>
+            <div className="card mt-1 mb-1">
+              <ListTask size={60}/>
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>             
+              </div>                      
+            </div>            
+          </AnimationOnScroll>                
+        </div>  
+        <div className="col col-md-6 col-sm-12">   
+          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.3} delay={3}>
+            <div className="card mt-1 mb-1">
+              <ListTask size={60}/>
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>             
+              </div>                      
+            </div>            
+          </AnimationOnScroll>                
+        </div>  
+        <div className="col col-md-6 col-sm-12">   
+          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.3} delay={4}>
+            <div className="card mt-1 mb-1">
+              <ListTask size={60}/>
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>             
+              </div>                      
+            </div>            
+          </AnimationOnScroll>                
+        </div>  
+        <div className="col col-md-6 col-sm-12">   
+          <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.3} delay={5}>
+            <div className="card mt-1 mb-1">
+              <ListTask size={60}/>
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>             
+              </div>                      
+            </div>            
+          </AnimationOnScroll>                
+        </div>  
+        <div className="col col-md-6 col-sm-12">   
+          <AnimationOnScroll animateIn="animate__fadeInRight" duration={1.3} delay={6}>
+            <div className="card mt-1 mb-1">
+              <ListTask size={60}/>
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>             
+              </div>                      
+            </div>            
+          </AnimationOnScroll>                
+        </div>  
+
+        <div className='d-flex w-75 align-items-center mt-5 mb-2'>
+          <div className="dropdown-divider w-25 m-1"></div>
+          <h5 className='w-100' >Our Works</h5>
+        </div>   
+
+        <div className='row'>
+          
+        </div>
+
+       
+        
       </div>
     </div>
   )
