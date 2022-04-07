@@ -42,3 +42,5 @@ const PostCard = ({item}) => {
 }
 
 export default PostCard;
+
+// className="col-sm-12 col-md-6 col-lg-4 mt-2"

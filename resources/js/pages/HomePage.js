@@ -2,8 +2,24 @@ import ReactPlayer from 'react-player';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { ListTask } from 'react-bootstrap-icons';
 import HomeSlider from '../components/HomeSlider';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import PostCard from '../components/posts/PostCard';
 
 const HomePage = () => {
+  const [randomPosts, setRandomPosts] = useState([]);
+
+  const getRandomPosts = () => {
+    axios.get('/api/posts')
+    .then(res => {
+      setRandomPosts(res.data.data)
+    })
+    .catch(err => console.log(err.res))
+  }
+
+  useEffect(() => {
+    getRandomPosts();
+  }, [])
 
   return (
     <div className='container'>
@@ -137,9 +153,21 @@ const HomePage = () => {
           </AnimationOnScroll>
         </div>
 
-       
-        
-      </div>
+        <div className='d-flex w-75 align-items-center mt-5 mb-2'>
+          <div className="dropdown-divider w-25 m-1"></div>
+          <h5 className='w-100' >Random Posts</h5>
+        </div>   
+
+        <AnimationOnScroll  animateIn="animate__fadeInUp" duration={1.7}>
+          <div className='row'>       
+            {
+              randomPosts.map(item => (             
+                <PostCard key={item.id} item={item}/>                           
+              ))
+            }                            
+          </div>     
+        </AnimationOnScroll>   
+        </div>        
     </div>
   )
 }

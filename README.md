@@ -114,4 +114,4 @@ TASCS:
 25. functional for favorite posts, images into profile page.
 26. how to do share?
 27. protected $withCount = ['likedPost'] = fichure for future;
-28.filtering & pagination front bags!!!!
+28. filtering & pagination front bags!!!!

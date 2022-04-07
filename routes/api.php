@@ -56,6 +56,7 @@ Route::prefix('profile')->group(function () {
 
 Route::prefix('posts')->group(function () {
   Route::post('/', App\Http\Controllers\Posts\IndexController::class);  
+  Route::get('/', App\Http\Controllers\Posts\IndexRandomController::class);  
   Route::prefix('{post}')->group(function () {
     Route::get('/', App\Http\Controllers\Posts\ShowController::class);
     Route::post('/like', App\Http\Controllers\Posts\Like\StoreController::class);
