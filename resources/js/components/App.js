@@ -34,6 +34,7 @@ import UserEditPage from "../pages/admin/users/UserEditPage";
 import LikedPostsPage from "../pages/profile/LikedPostsPage";
 import SinglePostPage from "../pages/posts/SinglePostPage";
 import CommentsPage from "../pages/profile/CommentsPage";
+import InfoPage from "../pages/InfoPage";
 
 const App = () => {
   const [categories, setCategories] = useState([]); //refactoring from context or redux
@@ -110,6 +111,7 @@ const App = () => {
               <Route index element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />          
               <Route path="gallery" element={<GalleryPage />} />          
+              <Route path="info" element={<InfoPage />} />          
               <Route path="posts">
                 <Route index element={<PostsPage categories={categories} />} />  
                 <Route path=":postId" element={<SinglePostPage />} />                            

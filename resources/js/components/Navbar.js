@@ -36,6 +36,9 @@ const Navbar = ({isAuth, setIsAuth, setIsAdmin, isAdmin}) => {
               <NavLink className="nav-link" aria-current="page" to="/gallery">Gallery</NavLink>
             </li>    
             <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/info">Info</NavLink>
+            </li>  
+            <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/posts">Posts</NavLink>
             </li>    
             {
