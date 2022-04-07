@@ -5,6 +5,7 @@ import HomeSlider from '../components/HomeSlider';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import PostCard from '../components/posts/PostCard';
+import MyTitle from '../components/MyTitle';
 
 const HomePage = () => {
   const [randomPosts, setRandomPosts] = useState([]);
@@ -28,12 +29,8 @@ const HomePage = () => {
           <ReactPlayer url={`https://www.youtube.com/embed/TvxL0HLLu2A`} />                         
         </div>
       </div>      
-      <div className='d-flex w-75 align-items-center mt-5 mb-2'>
-        <div className="dropdown-divider w-25 m-1"></div>
-        <h5 className='w-100' >Services</h5>
-      </div>                        
-      <div className='row'>
-      
+      <MyTitle title={'Services'}/>                                  
+      <div className='row'>      
         <div className="col">
         <AnimationOnScroll animateIn="animate__fadeInBottomLeft" delay={1} duration={2}>
           <h1>100+ customers...</h1>
@@ -55,10 +52,7 @@ const HomePage = () => {
         </div>          
       </div>      
       <div className='row'>
-        <div className='d-flex w-75 align-items-center mt-5 mb-2'>
-          <div className="dropdown-divider w-25 m-1"></div>
-          <h5 className='w-100' >Places where we works</h5>          
-        </div>       
+        <MyTitle title={'Places where we works'}/>                
       </div>
       <div className='row'>       
         <div className='col d-flex justify-content-around flex-wrap'>                 
@@ -68,11 +62,8 @@ const HomePage = () => {
         </div>     
       </div>
       <div className='row'>
-        <div className='d-flex w-75 align-items-center mt-5 mb-2'>
-          <div className="dropdown-divider w-25 m-1"></div>
-          <h5 className='w-100' >Advantage List</h5>          
-          <small>Birçok kişi tüm tadilat şirketlerinin aynı olduğunu ve sadece fiyat farkının olduğunu düşünüyor... Ama bu doğru değil.</small>          
-        </div>       
+        <MyTitle title={'Advantage List'}/>           
+        <small>Birçok kişi tüm tadilat şirketlerinin aynı olduğunu ve sadece fiyat farkının olduğunu düşünüyor... Ama bu doğru değil.</small>          
       </div>
       <div className='row'>      
         <div className="col col-md-6 col-sm-12">   
@@ -141,23 +132,14 @@ const HomePage = () => {
             </div>            
           </AnimationOnScroll>                
         </div>  
-
-        <div className='d-flex w-75 align-items-center mt-5 mb-2'>
-          <div className="dropdown-divider w-25 m-1"></div>
-          <h5 className='w-100' >Our Works</h5>
-        </div>   
+        <MyTitle title={'Our Works'}/>         
         <div className='w-100 mb-3'></div>
         <div className='row'>          
           <AnimationOnScroll animateIn="animate__fadeInUp" duration={1.7}>
             <HomeSlider/>
           </AnimationOnScroll>
         </div>
-
-        <div className='d-flex w-75 align-items-center mt-5 mb-2'>
-          <div className="dropdown-divider w-25 m-1"></div>
-          <h5 className='w-100' >Random Posts</h5>
-        </div>   
-
+        <MyTitle title={'Random Posts'}/> 
         <AnimationOnScroll  animateIn="animate__fadeInUp" duration={1.7}>
           <div className='row'>       
             {
